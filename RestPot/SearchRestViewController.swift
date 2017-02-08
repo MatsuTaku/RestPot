@@ -28,6 +28,18 @@ class SearchRestViewController: UIViewController, CLLocationManagerDelegate {
         
         startUpdateLocation()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        startUpdateLocation()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        stopUpdateLocating()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -55,9 +67,8 @@ class SearchRestViewController: UIViewController, CLLocationManagerDelegate {
                 }
                 let jsonData = JSON(data)
                 let restList = jsonData["rest"]
-                print(restList)
                 
-                self.performSegue(withIdentifier: "showRestList", sender: restList)
+                self.performSegue(withIdentifier: "toRestList", sender: restList)
             }
         })
     }
@@ -110,7 +121,7 @@ class SearchRestViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showRestList" {
+        if segue.identifier == "toRestList" {
             let restListVC = segue.destination as! RestListViewController
             restListVC.restList = (sender as! JSON).map{(_, rest) in Restaulant(rest)}
         }

@@ -1,19 +1,15 @@
 //
-//  RestListViewController.swift
+//  RestDetailViewController.swift
 //  RestPot
 //
-//  Created by 松本拓真 on 2017/02/08.
+//  Created by 松本拓真 on 2017/02/09.
 //  Copyright © 2017年 TakumaMatsumoto. All rights reserved.
 //
 
 import UIKit
 
-class RestListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RestDetailViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
-    
-    var restList: [Restaulant] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,17 +31,5 @@ class RestListViewController: UIViewController, UITableViewDelegate, UITableView
         // Pass the selected object to the new view controller.
     }
     */
-    
-    // MARK: - UITableViewDataSource methods
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return restList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RestListViewCell") as! RestListViewCell
-        cell.setupCell(restList[indexPath.row])
-        return cell
-    }
 
 }

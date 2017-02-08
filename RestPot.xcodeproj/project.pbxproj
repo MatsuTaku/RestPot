@@ -13,6 +13,8 @@
 		F17BCEC31E4A3F6D00BD2F4F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F17BCEC21E4A3F6D00BD2F4F /* CoreLocation.framework */; };
 		F17BCEC71E4B250500BD2F4F /* RestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17BCEC61E4B250500BD2F4F /* RestListViewController.swift */; };
 		F17BCEC91E4B25C400BD2F4F /* Restaulant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17BCEC81E4B25C400BD2F4F /* Restaulant.swift */; };
+		F17BCECB1E4B58AB00BD2F4F /* RestListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17BCECA1E4B58AA00BD2F4F /* RestListViewCell.swift */; };
+		F17BCECD1E4B7F8500BD2F4F /* RestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17BCECC1E4B7F8500BD2F4F /* RestDetailViewController.swift */; };
 		F1E00BDD1E4A36F500AC7A1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E00BDC1E4A36F500AC7A1E /* AppDelegate.swift */; };
 		F1E00BDF1E4A36F500AC7A1E /* SearchRestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E00BDE1E4A36F500AC7A1E /* SearchRestViewController.swift */; };
 		F1E00BE21E4A36F500AC7A1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1E00BE01E4A36F500AC7A1E /* Main.storyboard */; };
@@ -53,6 +55,8 @@
 		F17BCEC21E4A3F6D00BD2F4F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F17BCEC61E4B250500BD2F4F /* RestListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestListViewController.swift; sourceTree = "<group>"; };
 		F17BCEC81E4B25C400BD2F4F /* Restaulant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaulant.swift; sourceTree = "<group>"; };
+		F17BCECA1E4B58AA00BD2F4F /* RestListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestListViewCell.swift; sourceTree = "<group>"; };
+		F17BCECC1E4B7F8500BD2F4F /* RestDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestDetailViewController.swift; sourceTree = "<group>"; };
 		F1E00BD91E4A36F500AC7A1E /* RestPot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestPot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1E00BDC1E4A36F500AC7A1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1E00BDE1E4A36F500AC7A1E /* SearchRestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRestViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +156,8 @@
 				F17BCEC81E4B25C400BD2F4F /* Restaulant.swift */,
 				F1E00BDE1E4A36F500AC7A1E /* SearchRestViewController.swift */,
 				F17BCEC61E4B250500BD2F4F /* RestListViewController.swift */,
+				F17BCECA1E4B58AA00BD2F4F /* RestListViewCell.swift */,
+				F17BCECC1E4B7F8500BD2F4F /* RestDetailViewController.swift */,
 				F1E00BE01E4A36F500AC7A1E /* Main.storyboard */,
 				F1E00BE31E4A36F500AC7A1E /* Assets.xcassets */,
 				F1E00BE51E4A36F500AC7A1E /* LaunchScreen.storyboard */,
@@ -466,6 +472,8 @@
 				F17BCEC01E4A384A00BD2F4F /* GurunaviRequest.swift in Sources */,
 				F1E00BDF1E4A36F500AC7A1E /* SearchRestViewController.swift in Sources */,
 				F17BCEC91E4B25C400BD2F4F /* Restaulant.swift in Sources */,
+				F17BCECB1E4B58AB00BD2F4F /* RestListViewCell.swift in Sources */,
+				F17BCECD1E4B7F8500BD2F4F /* RestDetailViewController.swift in Sources */,
 				F1E00BDD1E4A36F500AC7A1E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
