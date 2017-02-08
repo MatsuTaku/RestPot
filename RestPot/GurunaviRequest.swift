@@ -7,17 +7,14 @@
 //
 
 import Foundation
+import Alamofire
 
 class GurunaviRequest {
-    let session: URLSession = URLSession.shared
-    let gurunaviUrl = URL(string: "https://api.gnavi.co.jp/RestSearchAPI/20150630/")
     static let keyid = "b8a9db8671d351cea9b91710d5788be4"
+    let gurunaviURL = "https://api.gnavi.co.jp/RestSearchAPI/20150630/"
     
-    func get(_ params: [String: Any], completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
-        var request: URLRequest = URLRequest(url: gurunaviUrl!)
-        
-        request.httpMethod = "GET"
-        request.httpBody = try! JSONSerialization.data(withJSONObject: params, options: [])
-        session.dataTask(with: request, completionHandler: completionHandler).resume()
+    func post(_ params: [String: Any], completionHandler: @escaping (DataResponse<Any>) -> Void) {
+        print(params)
+        Alamofire.request(gurunaviURL, method: .get, parameters: params).responseJSON(completionHandler: completionHandler)
     }
 }
