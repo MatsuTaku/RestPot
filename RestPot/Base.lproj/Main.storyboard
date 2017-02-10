@@ -67,7 +67,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="288" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KJx-Oz-jJd">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.7954241071" green="0.75443638390000001" blue="0.67407924109999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="0.79542410714285716" green="0.75443638392857137" blue="0.67407924107142858" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
@@ -78,7 +78,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="288"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s91-nj-UQK">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s91-nj-UQK">
                                                     <rect key="frame" x="8" y="8" width="359" height="202"/>
                                                     <color key="backgroundColor" white="0.81715423549924582" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -109,6 +109,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="VqE-mi-nq6" secondAttribute="bottom" id="DLe-JA-vC9"/>
                                                 <constraint firstItem="c4G-Ue-lzf" firstAttribute="top" secondItem="s91-nj-UQK" secondAttribute="bottom" constant="8" id="EEA-5U-RyN"/>
                                                 <constraint firstItem="VqE-mi-nq6" firstAttribute="top" secondItem="Ynh-pJ-S0w" secondAttribute="bottom" constant="8" id="SQM-ty-L4D"/>
                                                 <constraint firstItem="Ynh-pJ-S0w" firstAttribute="top" secondItem="c4G-Ue-lzf" secondAttribute="bottom" constant="2" id="Svj-dM-xYy"/>
@@ -170,19 +171,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="206" id="wdt-iR-LUt">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="206"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestTitleCell" rowHeight="210" id="wdt-iR-LUt">
+                                        <rect key="frame" x="0.0" y="56" width="375" height="210"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wdt-iR-LUt" id="Gnc-5J-By4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="205.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="209"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="93" id="CvX-nA-rWF">
-                                        <rect key="frame" x="0.0" y="261" width="375" height="93"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestDetailCell" rowHeight="93" id="CvX-nA-rWF">
+                                        <rect key="frame" x="0.0" y="266" width="375" height="93"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CvX-nA-rWF" id="0IG-MS-ti1">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="92.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="92"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -211,6 +212,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="iaX-q5-7Ty">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.68819754460000004" green="0.29179687500000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
