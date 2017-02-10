@@ -12,6 +12,7 @@ import AlamofireImage
 class RestListViewCell: UITableViewCell {
     
     @IBOutlet weak var thumbnail: UIImageView!
+    @IBOutlet weak var category: UILabel!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var access: UILabel!
 
@@ -27,6 +28,11 @@ class RestListViewCell: UITableViewCell {
     }
     
     func setupCell(_ rest: Restaulant) {
+        if let str = rest.shopImageURL1 {
+            let thumbURL = URL(string: str)!
+            thumbnail.af_setImage(withURL: thumbURL, placeholderImage: nil)
+        }
+        category.text = rest.category
         name.text = rest.name
         let accesses: [String?] = [rest.accessLine,
                                   rest.accessStation,
@@ -35,10 +41,6 @@ class RestListViewCell: UITableViewCell {
                                   rest.accessNote
         ]
         access.text = (accesses.filter{ $0 != nil } as! [String]).joined(separator: " ")
-        if let str = rest.shopImageURL1 {
-            let thumbURL = URL(string: str)!
-            thumbnail.af_setImage(withURL: thumbURL, placeholderImage: nil)
-        }
     }
 
 }

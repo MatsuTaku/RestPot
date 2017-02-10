@@ -9,6 +9,8 @@
 import UIKit
 
 class RestDetailViewController: UIViewController {
+    
+    var rest: Restaulant!
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -17,16 +17,10 @@ class SearchRestViewController: UIViewController, CLLocationManagerDelegate {
     var latitude: Double = 0
     var longitude: Double = 0
     var range: Int = 2
-
-    @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        indicator.isHidden = true
-        
-        startUpdateLocation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,7 +40,16 @@ class SearchRestViewController: UIViewController, CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func searchRestaulant() {
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toRestList" {
+            let restListVC = segue.destination as! RestListViewController
+            restListVC.searchParams = sender as! [String: Any]
+        }
+    }
+    
+    @IBAction func toSearchRestaulantView() {
         let params: [String: Any] = [
             "keyid": GurunaviRequest.keyid,
             "format": "json",
@@ -54,36 +57,11 @@ class SearchRestViewController: UIViewController, CLLocationManagerDelegate {
             "longitude": longitude,
             "range": range
         ]
-        startIndicatorAnimating()
-        GurunaviRequest().post(params, completionHandler: { response in
-            self.stopIndicatorAnimating()
-            
-            print(response)
-            if (response.result.error != nil) {
-                print(response.result.error!)
-            } else {
-                guard let data = response.data else {
-                    return
-                }
-                let jsonData = JSON(data)
-                let restList = jsonData["rest"]
-                
-                self.performSegue(withIdentifier: "toRestList", sender: restList)
-            }
-        })
+        
+        performSegue(withIdentifier: "toRestList", sender: params)
     }
     
-    func startIndicatorAnimating() {
-        indicator.isHidden = false
-        indicator.startAnimating()
-    }
-    
-    func stopIndicatorAnimating() {
-        self.indicator.stopAnimating()
-        self.indicator.isHidden = true
-    }
-    
-    // MARK: CLLocationManagerDelegate methods
+    // MARK: - CLLocationManagerDelegate methods
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
@@ -117,13 +95,6 @@ class SearchRestViewController: UIViewController, CLLocationManagerDelegate {
     func stopUpdateLocating() {
         if CLLocationManager.locationServicesEnabled() {
             locationManager?.stopUpdatingLocation()
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toRestList" {
-            let restListVC = segue.destination as! RestListViewController
-            restListVC.restList = (sender as! JSON).map{(_, rest) in Restaulant(rest)}
         }
     }
 

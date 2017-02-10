@@ -9,6 +9,7 @@ target 'RestPot' do
   pod 'Alamofire'
   pod 'AlamofireImage'
   pod 'SwiftyJSON'
+  pod 'SVProgressHUD'
 
   target 'RestPotTests' do
     inherit! :search_paths
