@@ -1,0 +1,24 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'RestPot' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for RestPot
+  pod 'Alamofire'
+  pod 'AlamofireImage'
+  pod 'SwiftyJSON'
+  pod 'SVProgressHUD'
+
+  target 'RestPotTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'RestPotUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
