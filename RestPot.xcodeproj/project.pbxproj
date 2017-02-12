@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		088047ACA8A5D127D83CE20F /* Pods_RestPotUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF0DC52A3E173882CC02874 /* Pods_RestPotUITests.framework */; };
 		9A0C2F638F92842D99F150C6 /* Pods_RestPotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F62C4C79DFA0BBD973E98484 /* Pods_RestPotTests.framework */; };
+		F116385E1E4FD20900BBB957 /* AppIconWhiteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F116385D1E4FD20900BBB957 /* AppIconWhiteImageView.swift */; };
+		F17BA1E31E4F8AC500B3664E /* SearchParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17BA1E21E4F8AC500B3664E /* SearchParameters.swift */; };
 		F17BCEC01E4A384A00BD2F4F /* GurunaviRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17BCEBF1E4A384A00BD2F4F /* GurunaviRequest.swift */; };
 		F17BCEC31E4A3F6D00BD2F4F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F17BCEC21E4A3F6D00BD2F4F /* CoreLocation.framework */; };
 		F17BCEC71E4B250500BD2F4F /* RestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17BCEC61E4B250500BD2F4F /* RestListViewController.swift */; };
 		F17BCEC91E4B25C400BD2F4F /* Restaulant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17BCEC81E4B25C400BD2F4F /* Restaulant.swift */; };
 		F17BCECB1E4B58AB00BD2F4F /* RestListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17BCECA1E4B58AA00BD2F4F /* RestListViewCell.swift */; };
 		F17BCECD1E4B7F8500BD2F4F /* RestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17BCECC1E4B7F8500BD2F4F /* RestDetailViewController.swift */; };
+		F17BCED11E4E79E800BD2F4F /* RestTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17BCED01E4E79E800BD2F4F /* RestTitleCell.swift */; };
+		F17BCED31E4E79FB00BD2F4F /* RestDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17BCED21E4E79FA00BD2F4F /* RestDetailCell.swift */; };
 		F1E00BDD1E4A36F500AC7A1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E00BDC1E4A36F500AC7A1E /* AppDelegate.swift */; };
 		F1E00BDF1E4A36F500AC7A1E /* SearchRestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E00BDE1E4A36F500AC7A1E /* SearchRestViewController.swift */; };
 		F1E00BE21E4A36F500AC7A1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1E00BE01E4A36F500AC7A1E /* Main.storyboard */; };
@@ -51,12 +55,16 @@
 		5A229534481ABBCD27B80D5E /* Pods-RestPot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestPot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RestPot/Pods-RestPot.debug.xcconfig"; sourceTree = "<group>"; };
 		A5CB7B7EEBC5E0FB34263D04 /* Pods-RestPotUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestPotUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RestPotUITests/Pods-RestPotUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CDF0DC52A3E173882CC02874 /* Pods_RestPotUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestPotUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F116385D1E4FD20900BBB957 /* AppIconWhiteImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppIconWhiteImageView.swift; sourceTree = "<group>"; };
+		F17BA1E21E4F8AC500B3664E /* SearchParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchParameters.swift; sourceTree = "<group>"; };
 		F17BCEBF1E4A384A00BD2F4F /* GurunaviRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GurunaviRequest.swift; sourceTree = "<group>"; };
 		F17BCEC21E4A3F6D00BD2F4F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F17BCEC61E4B250500BD2F4F /* RestListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestListViewController.swift; sourceTree = "<group>"; };
 		F17BCEC81E4B25C400BD2F4F /* Restaulant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaulant.swift; sourceTree = "<group>"; };
 		F17BCECA1E4B58AA00BD2F4F /* RestListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestListViewCell.swift; sourceTree = "<group>"; };
 		F17BCECC1E4B7F8500BD2F4F /* RestDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestDetailViewController.swift; sourceTree = "<group>"; };
+		F17BCED01E4E79E800BD2F4F /* RestTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestTitleCell.swift; sourceTree = "<group>"; };
+		F17BCED21E4E79FA00BD2F4F /* RestDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestDetailCell.swift; sourceTree = "<group>"; };
 		F1E00BD91E4A36F500AC7A1E /* RestPot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestPot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1E00BDC1E4A36F500AC7A1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1E00BDE1E4A36F500AC7A1E /* SearchRestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRestViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +123,34 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F17BA1D31E4F730800B3664E /* SearchRest */ = {
+			isa = PBXGroup;
+			children = (
+				F1E00BDE1E4A36F500AC7A1E /* SearchRestViewController.swift */,
+				F17BA1E21E4F8AC500B3664E /* SearchParameters.swift */,
+			);
+			name = SearchRest;
+			sourceTree = "<group>";
+		};
+		F17BA1D41E4F731700B3664E /* RestList */ = {
+			isa = PBXGroup;
+			children = (
+				F17BCEC61E4B250500BD2F4F /* RestListViewController.swift */,
+				F17BCECA1E4B58AA00BD2F4F /* RestListViewCell.swift */,
+			);
+			name = RestList;
+			sourceTree = "<group>";
+		};
+		F17BA1D51E4F732700B3664E /* RestDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F17BCECC1E4B7F8500BD2F4F /* RestDetailViewController.swift */,
+				F17BCED01E4E79E800BD2F4F /* RestTitleCell.swift */,
+				F17BCED21E4E79FA00BD2F4F /* RestDetailCell.swift */,
+			);
+			name = RestDetail;
+			sourceTree = "<group>";
+		};
 		F17BCEC11E4A3F6C00BD2F4F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,10 +190,10 @@
 				F1E00BDC1E4A36F500AC7A1E /* AppDelegate.swift */,
 				F17BCEBF1E4A384A00BD2F4F /* GurunaviRequest.swift */,
 				F17BCEC81E4B25C400BD2F4F /* Restaulant.swift */,
-				F1E00BDE1E4A36F500AC7A1E /* SearchRestViewController.swift */,
-				F17BCEC61E4B250500BD2F4F /* RestListViewController.swift */,
-				F17BCECA1E4B58AA00BD2F4F /* RestListViewCell.swift */,
-				F17BCECC1E4B7F8500BD2F4F /* RestDetailViewController.swift */,
+				F116385D1E4FD20900BBB957 /* AppIconWhiteImageView.swift */,
+				F17BA1D31E4F730800B3664E /* SearchRest */,
+				F17BA1D41E4F731700B3664E /* RestList */,
+				F17BA1D51E4F732700B3664E /* RestDetail */,
 				F1E00BE01E4A36F500AC7A1E /* Main.storyboard */,
 				F1E00BE31E4A36F500AC7A1E /* Assets.xcassets */,
 				F1E00BE51E4A36F500AC7A1E /* LaunchScreen.storyboard */,
@@ -469,11 +505,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F17BCEC71E4B250500BD2F4F /* RestListViewController.swift in Sources */,
+				F17BA1E31E4F8AC500B3664E /* SearchParameters.swift in Sources */,
+				F17BCED31E4E79FB00BD2F4F /* RestDetailCell.swift in Sources */,
 				F17BCEC01E4A384A00BD2F4F /* GurunaviRequest.swift in Sources */,
+				F116385E1E4FD20900BBB957 /* AppIconWhiteImageView.swift in Sources */,
 				F1E00BDF1E4A36F500AC7A1E /* SearchRestViewController.swift in Sources */,
 				F17BCEC91E4B25C400BD2F4F /* Restaulant.swift in Sources */,
 				F17BCECB1E4B58AB00BD2F4F /* RestListViewCell.swift in Sources */,
 				F17BCECD1E4B7F8500BD2F4F /* RestDetailViewController.swift in Sources */,
+				F17BCED11E4E79E800BD2F4F /* RestTitleCell.swift in Sources */,
 				F1E00BDD1E4A36F500AC7A1E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

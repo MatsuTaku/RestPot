@@ -26,9 +26,10 @@ class RestListViewController: UIViewController, UITableViewDelegate, UITableView
         
         self.tableView.estimatedRowHeight = 288
         self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.tableFooterView = UIView(frame: .zero)
         setTitleView()
         
-        searchRestaulant()
+        searchRestaulant(withHud: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,7 +66,9 @@ class RestListViewController: UIViewController, UITableViewDelegate, UITableView
     
     func setTitleView(withNumOfRest num: Int?) {
         let titleStackView = UIStackView(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
-        let navigationBarFrame = navigationController!.navigationBar.bounds
+        guard let navigationBarFrame = navigationController?.navigationBar.bounds else {
+            return
+        }
         titleStackView.center = CGPoint(x: navigationBarFrame.width/2, y: navigationBarFrame.height/2)
         titleStackView.axis = .vertical
         titleStackView.alignment = .center
@@ -78,23 +81,49 @@ class RestListViewController: UIViewController, UITableViewDelegate, UITableView
     
     // MARK: - Load Restaulant list methods
     
-    func searchRestaulant() {
-        startIndicatorAnimating()
+    func searchRestaulant(withHud animated: Bool) {
+        if animated {
+            startIndicatorAnimating()
+        }
         GurunaviRequest().post(searchParams, completionHandler: { response in
             self.stopIndicatorAnimating()
-            
-            if (response.result.error != nil) {
-                print(response.result.error!)
+            if let error = response.result.error {
+                print(error)
             } else {
                 guard let data = response.data else {
                     return
                 }
                 let jsonData = JSON(data)
-                self.restList = jsonData["rest"].map{ (_, json) in Restaulant(json) }
+                print(jsonData)
+                self.restList += jsonData["rest"].map{ (_, json) in Restaulant(json) }
                 self.tableView.reloadData()
-                self.setTitleView(withNumOfRest: self.restList.count)
+                // For some reason, JSON.int return nil value
+                guard let totalHitCountStr = jsonData["total_hit_count"].string else {
+                    self.setTitleView(withNumOfRest: 0)
+                    return
+                }
+                guard let totalHitCount = Int(totalHitCountStr) else {
+                    return
+                }
+                self.setTitleView(withNumOfRest: totalHitCount)
+                
+                guard
+                    let pageOffset = Int(jsonData["page_offset"].string!),
+                    let hitPerPage = Int(jsonData["hit_per_page"].string!)
+                else {
+                    return
+                }
+                self.requestNextRestData(withRecieved: pageOffset, total: totalHitCount, hitPerPage: hitPerPage)
             }
         })
+    }
+    
+    func requestNextRestData(withRecieved page: Int, total: Int, hitPerPage: Int) {
+        let recievedRestCount = page * hitPerPage
+        if recievedRestCount < total {
+            searchParams["offset_page"] = page + 1
+            searchRestaulant(withHud: false)
+        }
     }
     
     func startIndicatorAnimating() {

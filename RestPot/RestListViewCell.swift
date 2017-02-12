@@ -11,10 +11,13 @@ import AlamofireImage
 
 class RestListViewCell: UITableViewCell {
     
+    @IBOutlet weak var thumbnailBack: UIImageView!
     @IBOutlet weak var thumbnail: UIImageView!
     @IBOutlet weak var category: UILabel!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var access: UILabel!
+    @IBOutlet weak var profile: UILabel!
+    @IBOutlet weak var profileMarginTop: NSLayoutConstraint!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,19 +31,20 @@ class RestListViewCell: UITableViewCell {
     }
     
     func setupCell(_ rest: Restaulant) {
+        
         if let str = rest.shopImageURL1 {
-            let thumbURL = URL(string: str)!
-            thumbnail.af_setImage(withURL: thumbURL, placeholderImage: nil)
+            thumbnail.af_setImage(withURL: URL(string: str)!, placeholderImage: #imageLiteral(resourceName: "noimage"))
+            thumbnailBack.af_setImage(withURL: URL(string: str)!, placeholderImage: #imageLiteral(resourceName: "noimage"))
+        } else {
+            thumbnail.image = #imageLiteral(resourceName: "noimage")
+            thumbnailBack.image = #imageLiteral(resourceName: "noimage")
         }
         category.text = rest.category
         name.text = rest.name
-        let accesses: [String?] = [rest.accessLine,
-                                  rest.accessStation,
-                                  rest.accessStationExit,
-                                  rest.accessWalk,
-                                  rest.accessNote
-        ]
-        access.text = (accesses.filter{ $0 != nil } as! [String]).joined(separator: " ")
+        access.text = rest.accessText()
+        profile.text = rest.prShort
+        profileMarginTop.constant = rest.prShort != nil ? 8 : 0
+        profile.layoutIfNeeded()
     }
 
 }
