@@ -107,6 +107,7 @@ class RestDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
         if (detailList[indexPath.row].first as? String == "電話番号") {
             if let phoneNum = detailList[indexPath.row].last as? String,
             let telURL = URL(string: "tel:\(phoneNum)") {
