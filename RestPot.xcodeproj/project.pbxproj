@@ -19,6 +19,7 @@
 		F17BCECD1E4B7F8500BD2F4F /* RestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17BCECC1E4B7F8500BD2F4F /* RestDetailViewController.swift */; };
 		F17BCED11E4E79E800BD2F4F /* RestTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17BCED01E4E79E800BD2F4F /* RestTitleCell.swift */; };
 		F17BCED31E4E79FB00BD2F4F /* RestDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17BCED21E4E79FA00BD2F4F /* RestDetailCell.swift */; };
+		F1C53B521E5C2E2B00007AFB /* RangeRingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C53B511E5C2E2A00007AFB /* RangeRingButton.swift */; };
 		F1E00BDD1E4A36F500AC7A1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E00BDC1E4A36F500AC7A1E /* AppDelegate.swift */; };
 		F1E00BDF1E4A36F500AC7A1E /* SearchRestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E00BDE1E4A36F500AC7A1E /* SearchRestViewController.swift */; };
 		F1E00BE21E4A36F500AC7A1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1E00BE01E4A36F500AC7A1E /* Main.storyboard */; };
@@ -65,6 +66,7 @@
 		F17BCECC1E4B7F8500BD2F4F /* RestDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestDetailViewController.swift; sourceTree = "<group>"; };
 		F17BCED01E4E79E800BD2F4F /* RestTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestTitleCell.swift; sourceTree = "<group>"; };
 		F17BCED21E4E79FA00BD2F4F /* RestDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestDetailCell.swift; sourceTree = "<group>"; };
+		F1C53B511E5C2E2A00007AFB /* RangeRingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeRingButton.swift; sourceTree = "<group>"; };
 		F1E00BD91E4A36F500AC7A1E /* RestPot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestPot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1E00BDC1E4A36F500AC7A1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1E00BDE1E4A36F500AC7A1E /* SearchRestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRestViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +164,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F1C53B501E5C2DFF00007AFB /* UIParts */ = {
+			isa = PBXGroup;
+			children = (
+				F116385D1E4FD20900BBB957 /* AppIconWhiteImageView.swift */,
+				F1C53B511E5C2E2A00007AFB /* RangeRingButton.swift */,
+			);
+			name = UIParts;
+			sourceTree = "<group>";
+		};
 		F1E00BD01E4A36F500AC7A1E = {
 			isa = PBXGroup;
 			children = (
@@ -190,7 +201,7 @@
 				F1E00BDC1E4A36F500AC7A1E /* AppDelegate.swift */,
 				F17BCEBF1E4A384A00BD2F4F /* GurunaviRequest.swift */,
 				F17BCEC81E4B25C400BD2F4F /* Restaulant.swift */,
-				F116385D1E4FD20900BBB957 /* AppIconWhiteImageView.swift */,
+				F1C53B501E5C2DFF00007AFB /* UIParts */,
 				F17BA1D31E4F730800B3664E /* SearchRest */,
 				F17BA1D41E4F731700B3664E /* RestList */,
 				F17BA1D51E4F732700B3664E /* RestDetail */,
@@ -509,6 +520,7 @@
 				F17BCED31E4E79FB00BD2F4F /* RestDetailCell.swift in Sources */,
 				F17BCEC01E4A384A00BD2F4F /* GurunaviRequest.swift in Sources */,
 				F116385E1E4FD20900BBB957 /* AppIconWhiteImageView.swift in Sources */,
+				F1C53B521E5C2E2B00007AFB /* RangeRingButton.swift in Sources */,
 				F1E00BDF1E4A36F500AC7A1E /* SearchRestViewController.swift in Sources */,
 				F17BCEC91E4B25C400BD2F4F /* Restaulant.swift in Sources */,
 				F17BCECB1E4B58AB00BD2F4F /* RestListViewCell.swift in Sources */,
