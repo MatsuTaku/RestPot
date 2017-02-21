@@ -86,7 +86,7 @@ class Restaulant {
                                    accessWalk != nil ? "\(accessWalk!)分" : accessWalk,
                                    accessNote
         ]
-        text = (accesses.filter{ $0 != nil } as! [String]).joined(separator: " ")
+        text = accesses.flatMap { $0 }.joined(separator: " ")
         if text.isEmpty {
             text = "--"
         }

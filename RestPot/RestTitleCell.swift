@@ -32,11 +32,11 @@ class RestTitleCell: UITableViewCell {
         set(a){ imageAspect = 1/a }
     }
     
-    enum imageIndex {
+    enum ImageIndex {
         case First
         case Second
     }
-    var mainImageIndex: imageIndex = .First
+    var mainImageIndex: ImageIndex = .First
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -71,7 +71,7 @@ class RestTitleCell: UITableViewCell {
         prLongBottom.constant = rest.prLong != nil ? 15 : 0
     }
     
-    func mainImage(atIndex index: imageIndex) {
+    func mainImage(atIndex index: ImageIndex) {
         if mainImageIndex == index { return }
         mainImageIndex = index
         let height = (UIScreen.main.bounds.width - (8*3)) * imageAspectRev / (1 + pow(imageAspectRev, 2))

@@ -14,6 +14,9 @@ class SearchRestViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     @IBOutlet weak var rangeLabel: UILabel!
     @IBOutlet weak var rangePickerView: UIPickerView!
+    
+    let toRestListIdentifier = "toRestList"
+    
     var isEditRange: Bool = false
     
     var locationManager: CLLocationManager?
@@ -84,22 +87,18 @@ class SearchRestViewController: UIViewController, UIPickerViewDelegate, UIPicker
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toRestList" {
+        if segue.identifier == toRestListIdentifier {
             let restListVC = segue.destination as! RestListViewController
-            restListVC.searchParams = sender as! [String: Any]
+            restListVC.searchParams = sender as! GurunaviRequestParams
         }
     }
     
     @IBAction func toSearchRestaulantView() {
-        let params: [String: Any] = [
-            "keyid": GurunaviRequest.keyid,
-            "format": "json",
-            "latitude": latitude,
-            "longitude": longitude,
-            "range": range
-        ]
+        let params = GurunaviRequestParams()
+        params.location(latitude: latitude, longitude: longitude)
+        params.range(range)
         
-        performSegue(withIdentifier: "toRestList", sender: params)
+        performSegue(withIdentifier: toRestListIdentifier, sender: params)
     }
     
     // MARK: - UIPickerViewDataSource
