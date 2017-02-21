@@ -108,8 +108,8 @@ class RestDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        if (detailList[indexPath.row].first as? String == "電話番号") {
-            if let phoneNum = detailList[indexPath.row].last as? String,
+        if (detailList[indexPath.row].first!! as String == "電話番号") {
+            if let phoneNum = detailList[indexPath.row].last,
             let telURL = URL(string: "tel:\(phoneNum)") {
                 let alert = UIAlertController(title: phoneNum, message: "に電話を発信しますか？", preferredStyle: .alert)
                 let call = UIAlertAction(title: "はい", style: .default, handler: { action in

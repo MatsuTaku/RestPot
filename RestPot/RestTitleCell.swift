@@ -72,18 +72,17 @@ class RestTitleCell: UITableViewCell {
     }
     
     func mainImage(atIndex index: imageIndex) {
-        if mainImageIndex != index {
-            mainImageIndex = index
-            let height = (UIScreen.main.bounds.width - (8*3)) * imageAspectRev / (1 + pow(imageAspectRev, 2))
-            self.imageHeight.constant = height
-            self.firstImageWidth.constant = height * (index == .First ? imageAspect : imageAspectRev)
-            self.secondImageWidth.constant = height * (index == .Second ? imageAspectRev : imageAspect)
-            UIView.animate(withDuration: 0.4, animations: {
-                self.firstImage.superview?.layoutIfNeeded()
-                self.firstImage.layoutIfNeeded()
-                self.secondImage.layoutIfNeeded()
-            })
-        }
+        if mainImageIndex == index { return }
+        mainImageIndex = index
+        let height = (UIScreen.main.bounds.width - (8*3)) * imageAspectRev / (1 + pow(imageAspectRev, 2))
+        self.imageHeight.constant = height
+        self.firstImageWidth.constant = height * (index == .First ? imageAspect : imageAspectRev)
+        self.secondImageWidth.constant = height * (index == .Second ? imageAspectRev : imageAspect)
+        UIView.animate(withDuration: 0.4, animations: {
+            self.firstImage.superview?.layoutIfNeeded()
+            self.firstImage.layoutIfNeeded()
+            self.secondImage.layoutIfNeeded()
+        })
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
