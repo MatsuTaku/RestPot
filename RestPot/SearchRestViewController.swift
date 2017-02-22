@@ -12,8 +12,13 @@ import SwiftyJSON
 
 class SearchRestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, CLLocationManagerDelegate {
     
-//    @IBOutlet weak var rangeLabel: UILabel!
-//    @IBOutlet weak var rangePickerView: UIPickerView!
+    @IBOutlet weak var smallestRingRange: NSLayoutConstraint!
+    @IBOutlet weak var secondRingDiff: NSLayoutConstraint!
+    @IBOutlet weak var thirdRingDiff: NSLayoutConstraint!
+    @IBOutlet weak var forthRingDiff: NSLayoutConstraint!
+    @IBOutlet weak var fifthRingDiff: NSLayoutConstraint!
+    @IBOutlet weak var ringsCenterY: NSLayoutConstraint!
+    var ringsCenterPosition = CGPoint.zero
     
     let toRestListIdentifier = "toRestList"
     
@@ -46,8 +51,12 @@ class SearchRestViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     func viewSetUp() {
+        // NavigationBar
         AppIconWhiteImageView.setNavigationTitle(withNavigationItem: navigationItem)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        // RangeRingButtons
+        let screenBounds = UIScreen.main.bounds
+        ringsCenterPosition = CGPoint(x: screenBounds.width/2, y: screenBounds.height/2 + ringsCenterY.constant)
     }
     
     // MARK: - Navigation

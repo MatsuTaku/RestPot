@@ -25,5 +25,13 @@ import UIKit
         
         super.draw(rect)
     }
-
+    
+    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        let range = self.bounds.height/2
+        let center = CGPoint(x: range, y: range)
+        let pointFromCenter = CGPoint(x: point.x - center.x, y: point.y - center.y)
+        let pointRangePow = pow(pointFromCenter.x, 2) + pow(pointFromCenter.y, 2)
+//        print(pointRangePow, pow(range, 2))
+        return pointRangePow <= pow(range, 2)
+    }
 }
