@@ -13,10 +13,11 @@ import SwiftyJSON
 class GurunaviRequest {
     static let keyid = "b8a9db8671d351cea9b91710d5788be4"
     let gurunaviURL = "https://api.gnavi.co.jp/RestSearchAPI/20150630/"
+    var request: DataRequest?
     
     func post(_ params: GurunaviRequestParams, completionHandler: @escaping (GurunaviResponseParams) -> Void) {
         print(params)
-        Alamofire.request(gurunaviURL, method: .get, parameters: params.params)
+        request = Alamofire.request(gurunaviURL, method: .get, parameters: params.params)
             .responseJSON { response in
                 switch response.result {
                 case .success:
@@ -29,6 +30,10 @@ class GurunaviRequest {
                     break
                 }
         }
+    }
+    
+    func cancel() {
+        request?.cancel()
     }
 }
 

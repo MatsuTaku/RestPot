@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyJSON
 import SVProgressHUD
+import Alamofire
 
 class RestListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
 
@@ -17,6 +18,8 @@ class RestListViewController: UIViewController, UITableViewDelegate, UITableView
     lazy private var numOfRestLabel: UILabel = self.createNumOfRestLabel()
     
     let toRestDetailIdentifier = "toRestDetail"
+    
+    var request: GurunaviRequest?
     
     var restList: [Restaulant] = []
     lazy var searchParams: GurunaviRequestParams = GurunaviRequestParams()
@@ -35,6 +38,11 @@ class RestListViewController: UIViewController, UITableViewDelegate, UITableView
         setTitleView()
         
         searchRestaulant(withHud: true)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        request?.cancel()
     }
     
     // MARK: - Set up NavigationBarTitleView
@@ -87,7 +95,8 @@ class RestListViewController: UIViewController, UITableViewDelegate, UITableView
     
     func searchRestaulant(withHud animated: Bool) {
         if animated { startIndicatorAnimating() }
-        GurunaviRequest().post(searchParams, completionHandler: { response in
+        request = GurunaviRequest()
+        request?.post(searchParams, completionHandler: { response in
             if animated { self.stopIndicatorAnimating() }
             response.rests?.forEach { self.restList.append($0) }
             if !self.didUpdated {

@@ -31,9 +31,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lut-3X-rp0" customClass="RangeRingButton" customModule="RestPot" customModuleProvider="target">
                                 <rect key="frame" x="-142" y="203.5" width="660" height="660"/>
                                 <color key="backgroundColor" red="0.0" green="0.54901960780000003" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="660" id="Ujb-Ez-IaK"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="-580" maxX="0.0" maxY="0.0"/>
@@ -48,9 +45,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iBf-yr-F9A" customClass="RangeRingButton" customModule="RestPot" customModuleProvider="target">
                                 <rect key="frame" x="-82" y="263.5" width="540" height="540"/>
                                 <color key="backgroundColor" red="0.0" green="0.54901960780000003" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="540" id="tn7-dL-xLN"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="-460" maxX="0.0" maxY="0.0"/>
@@ -65,9 +59,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9WD-kl-E2r" customClass="RangeRingButton" customModule="RestPot" customModuleProvider="target">
                                 <rect key="frame" x="-22" y="323.5" width="420" height="420"/>
                                 <color key="backgroundColor" red="0.0" green="0.54901960780000003" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="420" id="an5-rx-AWe"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="-340" maxX="0.0" maxY="0.0"/>
@@ -82,9 +73,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHj-7H-DAb" customClass="RangeRingButton" customModule="RestPot" customModuleProvider="target">
                                 <rect key="frame" x="38" y="383.5" width="300" height="300"/>
                                 <color key="backgroundColor" red="0.0" green="0.54901960780000003" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="wbp-55-i9G"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="-220" maxX="0.0" maxY="0.0"/>
@@ -121,9 +109,11 @@
                             <constraint firstItem="iBf-yr-F9A" firstAttribute="centerX" secondItem="lut-3X-rp0" secondAttribute="centerX" id="F1k-FK-57U"/>
                             <constraint firstItem="9WD-kl-E2r" firstAttribute="centerY" secondItem="lut-3X-rp0" secondAttribute="centerY" id="Is5-Yc-ckK"/>
                             <constraint firstItem="lut-3X-rp0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="200" id="JRO-Eq-aiP"/>
+                            <constraint firstItem="lut-3X-rp0" firstAttribute="top" secondItem="iBf-yr-F9A" secondAttribute="top" constant="-60" id="JtU-hA-CZU"/>
                             <constraint firstItem="iBf-yr-F9A" firstAttribute="width" secondItem="iBf-yr-F9A" secondAttribute="height" multiplier="1:1" id="NhK-bl-ygT"/>
                             <constraint firstItem="oKE-z6-7Pw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Npl-99-rkB"/>
                             <constraint firstItem="9WD-kl-E2r" firstAttribute="width" secondItem="9WD-kl-E2r" secondAttribute="height" multiplier="1:1" id="Oi5-C2-WJw"/>
+                            <constraint firstItem="iBf-yr-F9A" firstAttribute="top" secondItem="9WD-kl-E2r" secondAttribute="top" constant="-60" id="Pnq-J1-bo9"/>
                             <constraint firstItem="bHj-7H-DAb" firstAttribute="centerX" secondItem="lut-3X-rp0" secondAttribute="centerX" id="St6-Cx-bcL"/>
                             <constraint firstItem="m3w-eh-hii" firstAttribute="centerY" secondItem="lut-3X-rp0" secondAttribute="centerY" id="UHZ-4I-HGQ"/>
                             <constraint firstItem="m3w-eh-hii" firstAttribute="centerX" secondItem="lut-3X-rp0" secondAttribute="centerX" id="Wk4-O7-KSA"/>
@@ -134,10 +124,18 @@
                             <constraint firstItem="bHj-7H-DAb" firstAttribute="width" secondItem="bHj-7H-DAb" secondAttribute="height" multiplier="1:1" id="mEI-EH-bom"/>
                             <constraint firstItem="bHj-7H-DAb" firstAttribute="centerY" secondItem="lut-3X-rp0" secondAttribute="centerY" id="oMj-a4-9fp"/>
                             <constraint firstItem="lut-3X-rp0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pDA-nT-9Gw"/>
+                            <constraint firstItem="bHj-7H-DAb" firstAttribute="top" secondItem="m3w-eh-hii" secondAttribute="top" constant="-60" id="sbz-FJ-p61"/>
+                            <constraint firstItem="9WD-kl-E2r" firstAttribute="top" secondItem="bHj-7H-DAb" secondAttribute="top" constant="-60" id="w7A-j1-nft"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="検索条件" id="Oxx-hM-bBu"/>
                     <connections>
+                        <outlet property="fifthRingDiff" destination="JtU-hA-CZU" id="rGA-uw-rFo"/>
+                        <outlet property="forthRingDiff" destination="Pnq-J1-bo9" id="BVy-ff-UvX"/>
+                        <outlet property="ringsCenterY" destination="JRO-Eq-aiP" id="OMH-Ao-Mkd"/>
+                        <outlet property="secondRingDiff" destination="sbz-FJ-p61" id="NgA-hM-PD6"/>
+                        <outlet property="smallestRingRange" destination="9e6-Iu-m4x" id="OF4-Vd-HbJ"/>
+                        <outlet property="thirdRingDiff" destination="w7A-j1-nft" id="Pj3-dK-4ZM"/>
                         <segue destination="eKW-ON-JMq" kind="show" identifier="toRestList" id="Vg4-cN-pIB"/>
                     </connections>
                 </viewController>
