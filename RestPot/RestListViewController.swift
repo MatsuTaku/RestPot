@@ -43,6 +43,7 @@ class RestListViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         request?.cancel()
+        stopIndicatorAnimating()
     }
     
     // MARK: - Set up NavigationBarTitleView

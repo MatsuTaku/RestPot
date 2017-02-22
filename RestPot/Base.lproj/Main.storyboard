@@ -28,74 +28,82 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lut-3X-rp0" customClass="RangeRingButton" customModule="RestPot" customModuleProvider="target">
-                                <rect key="frame" x="-142" y="203.5" width="660" height="660"/>
-                                <color key="backgroundColor" red="0.04310637807" green="0.64258311400000001" blue="0.57853062310000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lut-3X-rp0" customClass="RangeRingButton" customModule="RestPot" customModuleProvider="target">
+                                <rect key="frame" x="-182" y="163.5" width="740" height="740"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="titleEdgeInsets" minX="0.0" minY="-580" maxX="0.0" maxY="0.0"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="17" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="3km"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="mainColor">
+                                        <color key="value" red="0.1305848835" green="0.80792584199999995" blue="0.72706699299999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="searchFor3km:" destination="BYZ-38-t0r" eventType="touchUpInside" id="brT-BM-1jh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iBf-yr-F9A" customClass="RangeRingButton" customModule="RestPot" customModuleProvider="target">
-                                <rect key="frame" x="-82" y="263.5" width="540" height="540"/>
-                                <color key="backgroundColor" red="0.041273688279629371" green="0.64258311400000001" blue="0.33294208239775336" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iBf-yr-F9A" customClass="RangeRingButton" customModule="RestPot" customModuleProvider="target">
+                                <rect key="frame" x="-112" y="233.5" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="titleEdgeInsets" minX="0.0" minY="-460" maxX="0.0" maxY="0.0"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="17" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="2km"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="mainColor">
+                                        <color key="value" red="0.1620424687" green="0.80792584199999995" blue="0.38717960569999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="searchFor2km:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fDy-ny-R2d"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9WD-kl-E2r" customClass="RangeRingButton" customModule="RestPot" customModuleProvider="target">
-                                <rect key="frame" x="-22" y="323.5" width="420" height="420"/>
-                                <color key="backgroundColor" red="0.033593532446716493" green="0.64258311400000001" blue="0.14436885328911908" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9WD-kl-E2r" customClass="RangeRingButton" customModule="RestPot" customModuleProvider="target">
+                                <rect key="frame" x="-42" y="303.5" width="460" height="460"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="titleEdgeInsets" minX="0.0" minY="-340" maxX="0.0" maxY="0.0"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="17" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="1km"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="mainColor">
+                                        <color key="value" red="0.25003002000000002" green="0.80792584199999995" blue="0.1475583868" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="searchFor1km:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Ya-lb-9n1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHj-7H-DAb" customClass="RangeRingButton" customModule="RestPot" customModuleProvider="target">
-                                <rect key="frame" x="38" y="383.5" width="300" height="300"/>
-                                <color key="backgroundColor" red="0.13338417666804217" green="0.64258311400000001" blue="0.050817162580641992" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHj-7H-DAb" customClass="RangeRingButton" customModule="RestPot" customModuleProvider="target">
+                                <rect key="frame" x="28" y="373.5" width="320" height="320"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="titleEdgeInsets" minX="0.0" minY="-220" maxX="0.0" maxY="0.0"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="17" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="500m"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="mainColor">
+                                        <color key="value" red="0.64786071550000002" green="0.80792584199999995" blue="0.1606432491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="searchFor500m:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LCB-fl-UKb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3w-eh-hii" customClass="RangeRingButton" customModule="RestPot" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3w-eh-hii" customClass="RangeRingButton" customModule="RestPot" customModuleProvider="target">
                                 <rect key="frame" x="98" y="443.5" width="180" height="180"/>
-                                <color key="backgroundColor" red="0.28322745049999998" green="0.64258311400000001" blue="0.041629174060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="9e6-Iu-m4x"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="titleEdgeInsets" minX="0.0" minY="-100" maxX="0.0" maxY="0.0"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="17" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="300m"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="mainColor">
+                                        <color key="value" red="0.79642459720000003" green="0.64942966349999998" blue="0.1180970687" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="searchFor300m:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ImR-xE-zwQ"/>
@@ -109,11 +117,11 @@
                             <constraint firstItem="iBf-yr-F9A" firstAttribute="centerX" secondItem="lut-3X-rp0" secondAttribute="centerX" id="F1k-FK-57U"/>
                             <constraint firstItem="9WD-kl-E2r" firstAttribute="centerY" secondItem="lut-3X-rp0" secondAttribute="centerY" id="Is5-Yc-ckK"/>
                             <constraint firstItem="lut-3X-rp0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="200" id="JRO-Eq-aiP"/>
-                            <constraint firstItem="lut-3X-rp0" firstAttribute="top" secondItem="iBf-yr-F9A" secondAttribute="top" constant="-60" id="JtU-hA-CZU"/>
+                            <constraint firstItem="lut-3X-rp0" firstAttribute="top" secondItem="iBf-yr-F9A" secondAttribute="top" constant="-70" id="JtU-hA-CZU"/>
                             <constraint firstItem="iBf-yr-F9A" firstAttribute="width" secondItem="iBf-yr-F9A" secondAttribute="height" multiplier="1:1" id="NhK-bl-ygT"/>
                             <constraint firstItem="oKE-z6-7Pw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Npl-99-rkB"/>
                             <constraint firstItem="9WD-kl-E2r" firstAttribute="width" secondItem="9WD-kl-E2r" secondAttribute="height" multiplier="1:1" id="Oi5-C2-WJw"/>
-                            <constraint firstItem="iBf-yr-F9A" firstAttribute="top" secondItem="9WD-kl-E2r" secondAttribute="top" constant="-60" id="Pnq-J1-bo9"/>
+                            <constraint firstItem="iBf-yr-F9A" firstAttribute="top" secondItem="9WD-kl-E2r" secondAttribute="top" constant="-70" id="Pnq-J1-bo9"/>
                             <constraint firstItem="bHj-7H-DAb" firstAttribute="centerX" secondItem="lut-3X-rp0" secondAttribute="centerX" id="St6-Cx-bcL"/>
                             <constraint firstItem="m3w-eh-hii" firstAttribute="centerY" secondItem="lut-3X-rp0" secondAttribute="centerY" id="UHZ-4I-HGQ"/>
                             <constraint firstItem="m3w-eh-hii" firstAttribute="centerX" secondItem="lut-3X-rp0" secondAttribute="centerX" id="Wk4-O7-KSA"/>
@@ -124,8 +132,8 @@
                             <constraint firstItem="bHj-7H-DAb" firstAttribute="width" secondItem="bHj-7H-DAb" secondAttribute="height" multiplier="1:1" id="mEI-EH-bom"/>
                             <constraint firstItem="bHj-7H-DAb" firstAttribute="centerY" secondItem="lut-3X-rp0" secondAttribute="centerY" id="oMj-a4-9fp"/>
                             <constraint firstItem="lut-3X-rp0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pDA-nT-9Gw"/>
-                            <constraint firstItem="bHj-7H-DAb" firstAttribute="top" secondItem="m3w-eh-hii" secondAttribute="top" constant="-60" id="sbz-FJ-p61"/>
-                            <constraint firstItem="9WD-kl-E2r" firstAttribute="top" secondItem="bHj-7H-DAb" secondAttribute="top" constant="-60" id="w7A-j1-nft"/>
+                            <constraint firstItem="bHj-7H-DAb" firstAttribute="top" secondItem="m3w-eh-hii" secondAttribute="top" constant="-70" id="sbz-FJ-p61"/>
+                            <constraint firstItem="9WD-kl-E2r" firstAttribute="top" secondItem="bHj-7H-DAb" secondAttribute="top" constant="-70" id="w7A-j1-nft"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="検索条件" id="Oxx-hM-bBu"/>
