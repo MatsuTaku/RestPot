@@ -13,13 +13,13 @@ import UIKit
     @IBInspectable var borderWidth: CGFloat = 2
     @IBInspectable var borderColor: CGColor = UIColor.white.cgColor
     @IBInspectable var mainColor: UIColor?
-    let ringWidth: CGFloat = 70
+    @IBInspectable var ringWidth: CGFloat = 70
 
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
         // Drawing code
-        layer.cornerRadius = self.bounds.height / 2
+        layer.cornerRadius = rect.height / 2
         layer.borderWidth = borderWidth
         layer.borderColor = borderColor
         layer.masksToBounds = true

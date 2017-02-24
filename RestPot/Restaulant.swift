@@ -37,8 +37,11 @@ class Restaulant {
     var party: String?
     var lunch: String?
     
-    init(_ json: JSON) {
-        id = json["id"].string
+    init?(_ json: JSON) {
+        guard let id = json["id"].string else {
+            return nil
+        }
+        self.id = id
         name = json["name"].string
         nameKana = json["name_kana"].string
         category = json["category"].string

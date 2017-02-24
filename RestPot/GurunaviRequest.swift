@@ -11,13 +11,12 @@ import Alamofire
 import SwiftyJSON
 
 class GurunaviRequest {
-    static let keyid = "b8a9db8671d351cea9b91710d5788be4"
-    let gurunaviURL = "https://api.gnavi.co.jp/RestSearchAPI/20150630/"
+    
+    let url = "https://api.gnavi.co.jp/RestSearchAPI/20150630/"
     var request: DataRequest?
     
     func post(_ params: GurunaviRequestParams, completionHandler: @escaping (GurunaviResponseParams) -> Void) {
-        print(params)
-        request = Alamofire.request(gurunaviURL, method: .get, parameters: params.params)
+        request = Alamofire.request(url, method: .get, parameters: params.params)
             .responseJSON { response in
                 switch response.result {
                 case .success:
@@ -74,14 +73,19 @@ class GurunaviResponseParams {
     init(withData data: Data) {
         let json = JSON(data)
         print(json)
-        rests = json["rest"].map { (_, json) in Restaulant(json) }
+        let jsonRest = json["rest"]
+        if let rest = Restaulant(jsonRest) {
+            rests = [rest]
+        } else {
+            rests = jsonRest.flatMap {(_, json) in Restaulant(json)}
+        }
         // For some reason, JSON.int return nil value
         totalHitCount = formatInt(fromString: json["total_hit_count"].string)
         pageOffset = formatInt(fromString: json["page_offset"].string)
         hitPerPage = formatInt(fromString: json["hit_per_page"].string)
     }
     
-    private func formatInt(fromString string: String?) -> Int? {
+    func formatInt(fromString string: String?) -> Int? {
         if string == nil {
             return nil
         } else {

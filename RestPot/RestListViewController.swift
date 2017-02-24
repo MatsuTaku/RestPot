@@ -37,13 +37,14 @@ class RestListViewController: UIViewController, UITableViewDelegate, UITableView
         self.tableView.tableFooterView = UIView(frame: .zero)
         setTitleView()
         
+        restList = []
         searchRestaulant(withHud: true)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         request?.cancel()
-        stopIndicatorAnimating()
+        hideIndicator()
     }
     
     // MARK: - Set up NavigationBarTitleView
@@ -95,10 +96,10 @@ class RestListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func searchRestaulant(withHud animated: Bool) {
-        if animated { startIndicatorAnimating() }
+        if animated { showIndicator() }
         request = GurunaviRequest()
         request?.post(searchParams, completionHandler: { response in
-            if animated { self.stopIndicatorAnimating() }
+            if animated { self.hideIndicator() }
             response.rests?.forEach { self.restList.append($0) }
             if !self.didUpdated {
                 self.didUpdated = true
@@ -121,14 +122,6 @@ class RestListViewController: UIViewController, UITableViewDelegate, UITableView
             searchParams.offsetPage(page + 1)
             searchRestaulant(withHud: false)
         }
-    }
-    
-    func startIndicatorAnimating() {
-        SVProgressHUD.show()
-    }
-    
-    func stopIndicatorAnimating() {
-        SVProgressHUD.dismiss()
     }
     
 

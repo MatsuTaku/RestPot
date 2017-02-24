@@ -104,6 +104,9 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="mainColor">
                                         <color key="value" red="0.79642459720000003" green="0.64942966349999998" blue="0.1180970687" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="ringWidth">
+                                        <real key="value" value="90"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="searchFor300m:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ImR-xE-zwQ"/>
@@ -138,12 +141,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="検索条件" id="Oxx-hM-bBu"/>
                     <connections>
-                        <outlet property="fifthRingDiff" destination="JtU-hA-CZU" id="rGA-uw-rFo"/>
-                        <outlet property="forthRingDiff" destination="Pnq-J1-bo9" id="BVy-ff-UvX"/>
-                        <outlet property="ringsCenterY" destination="JRO-Eq-aiP" id="OMH-Ao-Mkd"/>
-                        <outlet property="secondRingDiff" destination="sbz-FJ-p61" id="NgA-hM-PD6"/>
-                        <outlet property="smallestRingRange" destination="9e6-Iu-m4x" id="OF4-Vd-HbJ"/>
-                        <outlet property="thirdRingDiff" destination="w7A-j1-nft" id="Pj3-dK-4ZM"/>
                         <segue destination="eKW-ON-JMq" kind="show" identifier="toRestList" id="Vg4-cN-pIB"/>
                     </connections>
                 </viewController>
@@ -173,7 +170,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="315"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5nc-XV-LBS" id="gtv-4i-24Y">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="314"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="315"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s91-nj-UQK">

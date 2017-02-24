@@ -10,53 +10,45 @@ import UIKit
 import CoreLocation
 import SwiftyJSON
 
-class SearchRestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, CLLocationManagerDelegate {
-    
-    @IBOutlet weak var smallestRingRange: NSLayoutConstraint!
-    @IBOutlet weak var secondRingDiff: NSLayoutConstraint!
-    @IBOutlet weak var thirdRingDiff: NSLayoutConstraint!
-    @IBOutlet weak var forthRingDiff: NSLayoutConstraint!
-    @IBOutlet weak var fifthRingDiff: NSLayoutConstraint!
-    @IBOutlet weak var ringsCenterY: NSLayoutConstraint!
-    var ringsCenterPosition = CGPoint.zero
+class SearchRestViewController: UIViewController, CLLocationManagerDelegate {
     
     let toRestListIdentifier = "toRestList"
     
-    var isEditRange: Bool = false
-    
     var locationManager: CLLocationManager?
     
+    var needToShowRestListView = false
+    var successUpdatingLocation = false
+    
+    var range: Int = 0
     var latitude: Double = 0
     var longitude: Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        viewSetUp()
+        
+        // NavigationBar
+        AppIconWhiteImageView.setNavigationTitle(withNavigationItem: navigationItem)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        // LocationManager
+        locationManager = CLLocationManager()
+        locationManager?.delegate = self
+        locationManager?.desiredAccuracy = kCLLocationAccuracyHundredMeters
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        startUpdateLocation()
+        locationManager?.startUpdatingLocation()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        stopUpdateLocating()
+        locationManager?.stopUpdatingLocation()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func viewSetUp() {
-        // NavigationBar
-        AppIconWhiteImageView.setNavigationTitle(withNavigationItem: navigationItem)
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        // RangeRingButtons
-        let screenBounds = UIScreen.main.bounds
-        ringsCenterPosition = CGPoint(x: screenBounds.width/2, y: screenBounds.height/2 + ringsCenterY.constant)
     }
     
     // MARK: - Navigation
@@ -68,50 +60,60 @@ class SearchRestViewController: UIViewController, UIPickerViewDelegate, UIPicker
         }
     }
     
-    func toSearchRestaulantView(withRange range: Int) {
+    func toRestListView() {
+        if !successUpdatingLocation {
+            locationManager?.requestLocation()
+            showIndicator(with: "現在位置取得中")
+            needToShowRestListView = true
+            return
+        }
         let params = GurunaviRequestParams()
         params.location(latitude: latitude, longitude: longitude)
         params.range(range)
-        
         performSegue(withIdentifier: toRestListIdentifier, sender: params)
     }
     
+    func searchRestaulant(withRange range: Int) {
+        self.range = range
+        if !CLLocationManager.locationServicesEnabled() {
+            showAlert(withTitle: NSLocalizedString("位置情報を取得できません", comment: ""))
+            return
+        }
+        switch CLLocationManager.authorizationStatus() {
+        case .notDetermined:
+            locationManager?.requestWhenInUseAuthorization()
+            break
+        case .denied, .restricted:
+            showAlert(withTitle: NSLocalizedString("位置情報取得を拒否されました", comment: ""))
+            break
+        case .authorizedAlways, .authorizedWhenInUse:
+            toRestListView()
+            break
+        }
+    }
+    
     @IBAction func searchFor3km(_ sender: RangeRingButton) {
-        toSearchRestaulantView(withRange: 5)
+        searchRestaulant(withRange: 5)
     }
     
     @IBAction func searchFor2km(_ sender: RangeRingButton) {
-        toSearchRestaulantView(withRange: 4)
+        searchRestaulant(withRange: 4)
         
     }
     
     @IBAction func searchFor1km(_ sender: RangeRingButton) {
-        toSearchRestaulantView(withRange: 3)
+        searchRestaulant(withRange: 3)
         
     }
     
     @IBAction func searchFor500m(_ sender: RangeRingButton) {
-        toSearchRestaulantView(withRange: 2)
+        searchRestaulant(withRange: 2)
         
     }
     
     @IBAction func searchFor300m(_ sender: RangeRingButton) {
-        toSearchRestaulantView(withRange: 1)
+        searchRestaulant(withRange: 1)
         
-    }
-    
-    // MARK: - UIPickerViewDataSource
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return SearchParameters.ranges.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return SearchParameters.ranges[row]
     }
     
     // MARK: - CLLocationManagerDelegate methods
@@ -128,27 +130,26 @@ class SearchRestViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        hideIndicator()
         guard let newLocation = locations.last else {
             return
         }
-        
+        successUpdatingLocation = true
         latitude = newLocation.coordinate.latitude
         longitude = newLocation.coordinate.longitude
-        //print("location = [\(latitude), \(longitude)]")
-    }
-    
-    func startUpdateLocation() {
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager = CLLocationManager()
-            locationManager?.delegate = self
-            locationManager?.startUpdatingLocation()
+        print("location = [\(latitude), \(longitude)]")
+        
+        if needToShowRestListView {
+            needToShowRestListView = false
+            toRestListView()
         }
     }
     
-    func stopUpdateLocating() {
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager?.stopUpdatingLocation()
-        }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        hideIndicator()
+        successUpdatingLocation = false
+        print(error)
+        showAlert(withTitle: NSLocalizedString("位置情報の取得に失敗しました", comment: ""))
     }
 
 }

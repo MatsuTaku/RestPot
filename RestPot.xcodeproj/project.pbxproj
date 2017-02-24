@@ -10,6 +10,8 @@
 		088047ACA8A5D127D83CE20F /* Pods_RestPotUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF0DC52A3E173882CC02874 /* Pods_RestPotUITests.framework */; };
 		9A0C2F638F92842D99F150C6 /* Pods_RestPotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F62C4C79DFA0BBD973E98484 /* Pods_RestPotTests.framework */; };
 		F116385E1E4FD20900BBB957 /* AppIconWhiteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F116385D1E4FD20900BBB957 /* AppIconWhiteImageView.swift */; };
+		F15F69A01E60B17000619BF4 /* UIViewController+SVProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15F699F1E60B17000619BF4 /* UIViewController+SVProgressHUD.swift */; };
+		F15F69A61E60BC9B00619BF4 /* UIViewController+showAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15F69A51E60BC9B00619BF4 /* UIViewController+showAlertView.swift */; };
 		F17BA1E31E4F8AC500B3664E /* SearchParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17BA1E21E4F8AC500B3664E /* SearchParameters.swift */; };
 		F17BCEC01E4A384A00BD2F4F /* GurunaviRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17BCEBF1E4A384A00BD2F4F /* GurunaviRequest.swift */; };
 		F17BCEC31E4A3F6D00BD2F4F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F17BCEC21E4A3F6D00BD2F4F /* CoreLocation.framework */; };
@@ -57,6 +59,8 @@
 		A5CB7B7EEBC5E0FB34263D04 /* Pods-RestPotUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestPotUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RestPotUITests/Pods-RestPotUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CDF0DC52A3E173882CC02874 /* Pods_RestPotUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestPotUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F116385D1E4FD20900BBB957 /* AppIconWhiteImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppIconWhiteImageView.swift; sourceTree = "<group>"; };
+		F15F699F1E60B17000619BF4 /* UIViewController+SVProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+SVProgressHUD.swift"; sourceTree = "<group>"; };
+		F15F69A51E60BC9B00619BF4 /* UIViewController+showAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+showAlertView.swift"; sourceTree = "<group>"; };
 		F17BA1E21E4F8AC500B3664E /* SearchParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchParameters.swift; sourceTree = "<group>"; };
 		F17BCEBF1E4A384A00BD2F4F /* GurunaviRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GurunaviRequest.swift; sourceTree = "<group>"; };
 		F17BCEC21E4A3F6D00BD2F4F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -125,6 +129,23 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F15F69A11E60B1AC00619BF4 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F15F69A21E60B25D00619BF4 /* UIViewController */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
+		F15F69A21E60B25D00619BF4 /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F15F699F1E60B17000619BF4 /* UIViewController+SVProgressHUD.swift */,
+				F15F69A51E60BC9B00619BF4 /* UIViewController+showAlertView.swift */,
+			);
+			name = UIViewController;
+			sourceTree = "<group>";
+		};
 		F17BA1D31E4F730800B3664E /* SearchRest */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,13 +185,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F1C53B501E5C2DFF00007AFB /* UIParts */ = {
+		F1C53B501E5C2DFF00007AFB /* UI */ = {
 			isa = PBXGroup;
 			children = (
 				F116385D1E4FD20900BBB957 /* AppIconWhiteImageView.swift */,
 				F1C53B511E5C2E2A00007AFB /* RangeRingButton.swift */,
 			);
-			name = UIParts;
+			name = UI;
 			sourceTree = "<group>";
 		};
 		F1E00BD01E4A36F500AC7A1E = {
@@ -201,7 +222,8 @@
 				F1E00BDC1E4A36F500AC7A1E /* AppDelegate.swift */,
 				F17BCEBF1E4A384A00BD2F4F /* GurunaviRequest.swift */,
 				F17BCEC81E4B25C400BD2F4F /* Restaulant.swift */,
-				F1C53B501E5C2DFF00007AFB /* UIParts */,
+				F15F69A11E60B1AC00619BF4 /* Extension */,
+				F1C53B501E5C2DFF00007AFB /* UI */,
 				F17BA1D31E4F730800B3664E /* SearchRest */,
 				F17BA1D41E4F731700B3664E /* RestList */,
 				F17BA1D51E4F732700B3664E /* RestDetail */,
@@ -516,6 +538,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F17BCEC71E4B250500BD2F4F /* RestListViewController.swift in Sources */,
+				F15F69A01E60B17000619BF4 /* UIViewController+SVProgressHUD.swift in Sources */,
 				F17BA1E31E4F8AC500B3664E /* SearchParameters.swift in Sources */,
 				F17BCED31E4E79FB00BD2F4F /* RestDetailCell.swift in Sources */,
 				F17BCEC01E4A384A00BD2F4F /* GurunaviRequest.swift in Sources */,
@@ -525,6 +548,7 @@
 				F17BCEC91E4B25C400BD2F4F /* Restaulant.swift in Sources */,
 				F17BCECB1E4B58AB00BD2F4F /* RestListViewCell.swift in Sources */,
 				F17BCECD1E4B7F8500BD2F4F /* RestDetailViewController.swift in Sources */,
+				F15F69A61E60BC9B00619BF4 /* UIViewController+showAlertView.swift in Sources */,
 				F17BCED11E4E79E800BD2F4F /* RestTitleCell.swift in Sources */,
 				F1E00BDD1E4A36F500AC7A1E /* AppDelegate.swift in Sources */,
 			);
