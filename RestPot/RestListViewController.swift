@@ -37,7 +37,6 @@ class RestListViewController: UIViewController, UITableViewDelegate, UITableView
         self.tableView.tableFooterView = UIView(frame: .zero)
         setTitleView()
         
-        restList = []
         searchRestaulant(withHud: true)
     }
     

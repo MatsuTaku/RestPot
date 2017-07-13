@@ -13,6 +13,10 @@ class RestDetailCell: UITableViewCell {
     
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var detail: UILabel!
+    
+    var restDetail: RestDetail?
+    
+    var isCallNumber = false
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,11 +30,14 @@ class RestDetailCell: UITableViewCell {
     }
     
     func setupCell(withTitle title: String?, detail: String?) {
+        
         self.title.text = title
         self.detail.text = detail
-        if title == "電話番号" {
+        if title == NSLocalizedString("電話番号", comment: "Used to calling on phone app") {
+            isCallNumber = true
             self.detail.textColor = UIColor(red: 0, green: 0.5, blue: 1, alpha: 1)
         } else {
+            isCallNumber = false
             self.detail.textColor = UIColor.darkText
         }
     }

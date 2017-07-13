@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  RestPot
+
+  Created by 松本拓真 on 2017/07/13.
+  Copyright © 2017年 TakumaMatsumoto. All rights reserved.
+*/
+
+// Need semi-colon on end of line!!jjj
+
+"access" = "アクセス";
+"callNumber" = "電話番号";
+"budget" = "平均予算";
+"lunch" = "平均予算(ランチタイム)";
+"party" = "平均予算(宴会・パーティ)";
+"openTime" = "営業時間";
+"holiday" = "休業日";
+"address" = "住所";
+

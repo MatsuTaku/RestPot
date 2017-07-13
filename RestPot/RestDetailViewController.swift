@@ -13,7 +13,7 @@ class RestDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var tableView: UITableView!
     
     var rest: Restaulant!
-    lazy var detailList: [[String?]] = self.makeDetailList()
+    lazy var detailList: [RestDetail] = self.makeDetailList()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,18 +33,18 @@ class RestDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         // Dispose of any resources that can be recreated.
     }
     
-    func makeDetailList() -> [[String?]] {
-        let list: [[String?]] = [
-            ["アクセス", rest.accessText()],
-            ["電話番号", rest.tel],
-            ["平均予算", rest.budget],
-            ["平均予算(ランチタイム)", rest.lunch],
-            ["平均予算(宴会・パーティ)", rest.party],
-            ["営業時間", rest.opentime],
-            ["休業日", rest.holiday],
-            ["住所", rest.address],
+    func makeDetailList() -> [RestDetail] {
+        let list: [RestDetail?] = [
+            RestDetail(title: .access, detail: rest.accessText()),
+            RestDetail(title: .callNumber, detail: rest.tel),
+            RestDetail(title: .budget, detail: rest.budget),
+            RestDetail(title: .lunch, detail: rest.lunch),
+            RestDetail(title: .party, detail: rest.party),
+            RestDetail(title: .openTime, detail: rest.opentime),
+            RestDetail(title: .holiday, detail: rest.holiday),
+            RestDetail(title: .address, detail: rest.address),
         ]
-        return list.filter{ $0.last! != nil }
+        return list.flatMap{ $0 }
     }
     
 
@@ -80,7 +80,8 @@ class RestDetailViewController: UIViewController, UITableViewDelegate, UITableVi
             return titleCell
         case 1:
             let detailCell = tableView.dequeueReusableCell(withIdentifier: "RestDetailCell") as! RestDetailCell
-            detailCell.setupCell(withTitle: detailList[indexPath.row].first!, detail: detailList[indexPath.row].last!)
+            let detail = detailList[indexPath.row]
+            detailCell.setupCell(withTitle: detail.title, detail: detail.detail)
             return detailCell
         default:
             return UITableViewCell()
@@ -108,18 +109,21 @@ class RestDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        if (detailList[indexPath.row].first!! as String == "電話番号") {
-            if let phoneNum = detailList[indexPath.row].last,
-            let telURL = URL(string: "tel:\(phoneNum)") {
-                let alert = UIAlertController(title: phoneNum, message: "に電話を発信しますか？", preferredStyle: .alert)
-                let call = UIAlertAction(title: "はい", style: .default, handler: { action in
-                    UIApplication.shared.openURL(telURL)
-                })
-                alert.addAction(call)
-                let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
-                alert.addAction(cancel)
-                self.present(alert, animated: true, completion: nil)
+        let detailPair = detailList[indexPath.row]
+        if detailPair.isCallNumber {
+            let phoneNum = detailPair.detail
+            guard let telURL = URL(string: "tel:\(phoneNum)") else {
+                return
             }
+            let alert = UIAlertController(title: phoneNum, message: "に電話を発信しますか？", preferredStyle: .alert)
+            let call = UIAlertAction(title: "はい", style: .default, handler: { action in
+                UIApplication.shared.openURL(telURL)
+            })
+            alert.addAction(call)
+            let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+            alert.addAction(cancel)
+            self.present(alert, animated: true, completion: nil)
+            
         }
     }
 

@@ -12,7 +12,8 @@
 		F116385E1E4FD20900BBB957 /* AppIconWhiteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F116385D1E4FD20900BBB957 /* AppIconWhiteImageView.swift */; };
 		F15F69A01E60B17000619BF4 /* UIViewController+SVProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15F699F1E60B17000619BF4 /* UIViewController+SVProgressHUD.swift */; };
 		F15F69A61E60BC9B00619BF4 /* UIViewController+showAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15F69A51E60BC9B00619BF4 /* UIViewController+showAlertView.swift */; };
-		F17BA1E31E4F8AC500B3664E /* SearchParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17BA1E21E4F8AC500B3664E /* SearchParameters.swift */; };
+		F15F69AA1E60CEA100619BF4 /* RestDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15F69A91E60CEA100619BF4 /* RestDetail.swift */; };
+		F16B6BE71F16CE770009C6F6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F16B6BE91F16CE770009C6F6 /* Localizable.strings */; };
 		F17BCEC01E4A384A00BD2F4F /* GurunaviRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17BCEBF1E4A384A00BD2F4F /* GurunaviRequest.swift */; };
 		F17BCEC31E4A3F6D00BD2F4F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F17BCEC21E4A3F6D00BD2F4F /* CoreLocation.framework */; };
 		F17BCEC71E4B250500BD2F4F /* RestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17BCEC61E4B250500BD2F4F /* RestListViewController.swift */; };
@@ -61,7 +62,10 @@
 		F116385D1E4FD20900BBB957 /* AppIconWhiteImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppIconWhiteImageView.swift; sourceTree = "<group>"; };
 		F15F699F1E60B17000619BF4 /* UIViewController+SVProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+SVProgressHUD.swift"; sourceTree = "<group>"; };
 		F15F69A51E60BC9B00619BF4 /* UIViewController+showAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+showAlertView.swift"; sourceTree = "<group>"; };
-		F17BA1E21E4F8AC500B3664E /* SearchParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchParameters.swift; sourceTree = "<group>"; };
+		F15F69A91E60CEA100619BF4 /* RestDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestDetail.swift; sourceTree = "<group>"; };
+		F16B6BE21F16CDD60009C6F6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		F16B6BE31F16CDD60009C6F6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		F16B6BE81F16CE770009C6F6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F17BCEBF1E4A384A00BD2F4F /* GurunaviRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GurunaviRequest.swift; sourceTree = "<group>"; };
 		F17BCEC21E4A3F6D00BD2F4F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F17BCEC61E4B250500BD2F4F /* RestListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestListViewController.swift; sourceTree = "<group>"; };
@@ -150,7 +154,6 @@
 			isa = PBXGroup;
 			children = (
 				F1E00BDE1E4A36F500AC7A1E /* SearchRestViewController.swift */,
-				F17BA1E21E4F8AC500B3664E /* SearchParameters.swift */,
 			);
 			name = SearchRest;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 				F17BCECC1E4B7F8500BD2F4F /* RestDetailViewController.swift */,
 				F17BCED01E4E79E800BD2F4F /* RestTitleCell.swift */,
 				F17BCED21E4E79FA00BD2F4F /* RestDetailCell.swift */,
+				F15F69A91E60CEA100619BF4 /* RestDetail.swift */,
 			);
 			name = RestDetail;
 			sourceTree = "<group>";
@@ -231,6 +235,7 @@
 				F1E00BE31E4A36F500AC7A1E /* Assets.xcassets */,
 				F1E00BE51E4A36F500AC7A1E /* LaunchScreen.storyboard */,
 				F1E00BE81E4A36F500AC7A1E /* Info.plist */,
+				F16B6BE91F16CE770009C6F6 /* Localizable.strings */,
 			);
 			path = RestPot;
 			sourceTree = "<group>";
@@ -373,6 +378,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1E00BE71E4A36F500AC7A1E /* LaunchScreen.storyboard in Resources */,
+				F16B6BE71F16CE770009C6F6 /* Localizable.strings in Resources */,
 				F1E00BE41E4A36F500AC7A1E /* Assets.xcassets in Resources */,
 				F1E00BE21E4A36F500AC7A1E /* Main.storyboard in Resources */,
 			);
@@ -539,7 +545,6 @@
 			files = (
 				F17BCEC71E4B250500BD2F4F /* RestListViewController.swift in Sources */,
 				F15F69A01E60B17000619BF4 /* UIViewController+SVProgressHUD.swift in Sources */,
-				F17BA1E31E4F8AC500B3664E /* SearchParameters.swift in Sources */,
 				F17BCED31E4E79FB00BD2F4F /* RestDetailCell.swift in Sources */,
 				F17BCEC01E4A384A00BD2F4F /* GurunaviRequest.swift in Sources */,
 				F116385E1E4FD20900BBB957 /* AppIconWhiteImageView.swift in Sources */,
@@ -550,6 +555,7 @@
 				F17BCECD1E4B7F8500BD2F4F /* RestDetailViewController.swift in Sources */,
 				F15F69A61E60BC9B00619BF4 /* UIViewController+showAlertView.swift in Sources */,
 				F17BCED11E4E79E800BD2F4F /* RestTitleCell.swift in Sources */,
+				F15F69AA1E60CEA100619BF4 /* RestDetail.swift in Sources */,
 				F1E00BDD1E4A36F500AC7A1E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -586,10 +592,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		F16B6BE91F16CE770009C6F6 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F16B6BE81F16CE770009C6F6 /* ja */,
+			);
+			name = Localizable.strings;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		F1E00BE01E4A36F500AC7A1E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F1E00BE11E4A36F500AC7A1E /* Base */,
+				F16B6BE21F16CDD60009C6F6 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -598,6 +614,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				F1E00BE61E4A36F500AC7A1E /* Base */,
+				F16B6BE31F16CDD60009C6F6 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -609,6 +626,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -660,6 +678,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
