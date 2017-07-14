@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import SwiftyJSON
 
-class SearchRestViewController: UIViewController, CLLocationManagerDelegate {
+class SearchRestViewController: UIViewController {
     
     let toRestListIdentifier = "toRestList"
     
@@ -115,8 +115,9 @@ class SearchRestViewController: UIViewController, CLLocationManagerDelegate {
         searchRestaulant(withRange: 1)
         
     }
-    
-    // MARK: - CLLocationManagerDelegate methods
+}
+
+extension SearchRestViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {

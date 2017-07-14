@@ -8,7 +8,12 @@
 
 import UIKit
 
-class RestDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+enum RestDetailTableSection: Int {
+    case Title = 0
+    case Detail
+}
+
+class RestDetailViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -58,57 +63,60 @@ class RestDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     */
     
-    // MARK: - UITableViewDataSource
+}
+
+extension RestDetailViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0: return 1
-        case 1: return detailList.count
-        default: return 0
+        switch RestDetailTableSection(rawValue: section) {
+        case .some(.Title): return 1
+        case .some(.Detail): return detailList.count
+        case .none: return 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section {
-        case 0:
+        switch RestDetailTableSection(rawValue: indexPath.section) {
+        case .some(.Title):
             let titleCell = tableView.dequeueReusableCell(withIdentifier: "RestTitleCell") as! RestTitleCell
             titleCell.setupCell(rest: rest)
             return titleCell
-        case 1:
+        case .some(.Detail):
             let detailCell = tableView.dequeueReusableCell(withIdentifier: "RestDetailCell") as! RestDetailCell
             let detail = detailList[indexPath.row]
             detailCell.setupCell(withTitle: detail.title, detail: detail.detail)
             return detailCell
-        default:
+        case .none:
             return UITableViewCell()
         }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        switch section {
-        case 0:
+        switch RestDetailTableSection(rawValue: section) {
+        case .some(.Title):
             return 0.1
-        case 1:
+        case .some(.Detail):
             return 30
-        default:
+        case .none:
             return 0
         }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 0: return nil
-        case 1: return NSLocalizedString("基本情報", comment: "")
-        default: return nil
+        switch RestDetailTableSection(rawValue: section) {
+        case .some(.Title): return nil
+        case .some(.Detail): return NSLocalizedString("基本情報", comment: "")
+        case .none: return nil
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        
         let detailPair = detailList[indexPath.row]
         if detailPair.isCallNumber {
             let phoneNum = detailPair.detail

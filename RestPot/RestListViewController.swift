@@ -11,7 +11,7 @@ import SwiftyJSON
 import SVProgressHUD
 import Alamofire
 
-class RestListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
+class RestListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     lazy private var titleLabel: UILabel = self.createTitleLabel()
@@ -134,7 +134,9 @@ class RestListViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    // MARK: - UITableViewDataSource
+}
+
+extension RestListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return restList.count
@@ -151,7 +153,9 @@ class RestListViewController: UIViewController, UITableViewDelegate, UITableView
         performSegue(withIdentifier: toRestDetailIdentifier, sender: restList[indexPath.row])
     }
     
-    // MARK: - UIScrollViewDelegate
+}
+
+extension RestListViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if tableView.contentOffset.y + tableView.bounds.height > tableView.contentSize.height {
