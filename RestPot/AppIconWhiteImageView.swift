@@ -32,7 +32,7 @@ class AppIconWhiteImageView: UIImageView {
         self.contentMode = .scaleAspectFit
     }
     
-    static func setNavigationTitle(withNavigationItem navigationItem: UINavigationItem) {
+    static func setNavigationTitle(to navigationItem: UINavigationItem) {
         navigationItem.titleView = AppIconWhiteImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
     }
     

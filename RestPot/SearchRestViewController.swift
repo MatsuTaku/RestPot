@@ -12,8 +12,6 @@ import SwiftyJSON
 
 class SearchRestViewController: UIViewController {
     
-    let toRestListIdentifier = "toRestList"
-    
     var locationManager: CLLocationManager?
     
     var needToShowRestListView = false
@@ -28,12 +26,12 @@ class SearchRestViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         // NavigationBar
-        AppIconWhiteImageView.setNavigationTitle(withNavigationItem: navigationItem)
+        AppIconWhiteImageView.setNavigationTitle(to: navigationItem)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         // LocationManager
         locationManager = CLLocationManager()
-        locationManager?.delegate = self
-        locationManager?.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        locationManager!.delegate = self
+        locationManager!.desiredAccuracy = kCLLocationAccuracyHundredMeters
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,7 +52,7 @@ class SearchRestViewController: UIViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == toRestListIdentifier {
+        if segue.identifier == Segue.toRestListIdentifier {
             let restListVC = segue.destination as! RestListViewController
             restListVC.searchParams = sender as! GurunaviRequestParams
         }
@@ -63,20 +61,20 @@ class SearchRestViewController: UIViewController {
     func toRestListView() {
         if !successUpdatingLocation {
             locationManager?.requestLocation()
-            showIndicator(with: "現在位置取得中")
+            showIndicator(status: "現在位置取得中")
             needToShowRestListView = true
             return
         }
         let params = GurunaviRequestParams()
         params.location(latitude: latitude, longitude: longitude)
         params.range(range)
-        performSegue(withIdentifier: toRestListIdentifier, sender: params)
+        performSegue(withIdentifier: Segue.toRestListIdentifier, sender: params)
     }
     
-    func searchRestaulant(withRange range: Int) {
+    func searchRestaulant(range: Int) {
         self.range = range
         if !CLLocationManager.locationServicesEnabled() {
-            showAlert(withTitle: NSLocalizedString("位置情報を取得できません", comment: ""))
+            showAlert(title: NSLocalizedString("位置情報を取得できません", comment: ""))
             return
         }
         switch CLLocationManager.authorizationStatus() {
@@ -84,7 +82,7 @@ class SearchRestViewController: UIViewController {
             locationManager?.requestWhenInUseAuthorization()
             break
         case .denied, .restricted:
-            showAlert(withTitle: NSLocalizedString("位置情報取得を拒否されました", comment: ""))
+            showAlert(title: NSLocalizedString("位置情報取得を拒否されました", comment: ""))
             break
         case .authorizedAlways, .authorizedWhenInUse:
             toRestListView()
@@ -93,29 +91,30 @@ class SearchRestViewController: UIViewController {
     }
     
     @IBAction func searchFor3km(_ sender: RangeRingButton) {
-        searchRestaulant(withRange: 5)
+        searchRestaulant(range: 5)
     }
     
     @IBAction func searchFor2km(_ sender: RangeRingButton) {
-        searchRestaulant(withRange: 4)
+        searchRestaulant(range: 4)
         
     }
     
     @IBAction func searchFor1km(_ sender: RangeRingButton) {
-        searchRestaulant(withRange: 3)
+        searchRestaulant(range: 3)
         
     }
     
     @IBAction func searchFor500m(_ sender: RangeRingButton) {
-        searchRestaulant(withRange: 2)
+        searchRestaulant(range: 2)
         
     }
     
     @IBAction func searchFor300m(_ sender: RangeRingButton) {
-        searchRestaulant(withRange: 1)
+        searchRestaulant(range: 1)
         
     }
 }
+
 
 extension SearchRestViewController: CLLocationManagerDelegate {
     
@@ -150,7 +149,7 @@ extension SearchRestViewController: CLLocationManagerDelegate {
         hideIndicator()
         successUpdatingLocation = false
         print(error)
-        showAlert(withTitle: NSLocalizedString("位置情報の取得に失敗しました", comment: ""))
+        showAlert(title: NSLocalizedString("位置情報の取得に失敗しました", comment: ""))
     }
 
 }

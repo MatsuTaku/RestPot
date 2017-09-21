@@ -12,15 +12,13 @@ class RestDetail {
     
     var title: String
     var detail: String
-    var isCallNumber = false
+    var isCallNumber: Bool = false
     
     init?(title: RestDetailTitle, detail: String?) {
-        self.title = title.get()
+        self.title = title.text
         if detail == nil { return nil }
         self.detail = detail!
-        if title == .callNumber {
-            isCallNumber = true
-        }
+        isCallNumber = title == .callNumber
     }
     
 }
@@ -35,17 +33,21 @@ enum RestDetailTitle {
     case holiday
     case address
     
-    func get() -> String {
+    var text: String {
         switch self {
-        case .access: return NSLocalizedString("access", comment: "")
-        case .callNumber: return NSLocalizedString("callNumber", comment: "Used to calling on phone app")
-        case .budget: return NSLocalizedString("budget", comment: "")
-        case .lunch: return NSLocalizedString("lunch", comment: "")
-        case .party: return NSLocalizedString("party", comment: "")
-        case .openTime: return NSLocalizedString("openTime", comment: "")
-        case .holiday: return NSLocalizedString("holiday", comment: "")
-        case .address: return NSLocalizedString("address", comment: "")
+        case .access: return "access".localized
+        case .callNumber: return "callNumber".localized
+        case .budget: return "budget".localized
+        case .lunch: return "lunch".localized
+        case .party: return "party".localized
+        case .openTime: return "openTime".localized
+        case .holiday: return "holiday".localized
+        case .address: return "address".localized
         }
     }
+}
+
+extension RestDetail: TableData {
+    
 }
  

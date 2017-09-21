@@ -10,6 +10,11 @@
 		088047ACA8A5D127D83CE20F /* Pods_RestPotUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF0DC52A3E173882CC02874 /* Pods_RestPotUITests.framework */; };
 		9A0C2F638F92842D99F150C6 /* Pods_RestPotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F62C4C79DFA0BBD973E98484 /* Pods_RestPotTests.framework */; };
 		F116385E1E4FD20900BBB957 /* AppIconWhiteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F116385D1E4FD20900BBB957 /* AppIconWhiteImageView.swift */; };
+		F15CB52A1F3D4ECA00C58D6D /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15CB5291F3D4EC900C58D6D /* Segue.swift */; };
+		F15CB52C1F3D521900C58D6D /* String+NSLocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15CB52B1F3D521900C58D6D /* String+NSLocalizedString.swift */; };
+		F15CB52E1F3D59E600C58D6D /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15CB52D1F3D59E600C58D6D /* LocalizedString.swift */; };
+		F15CB5301F3D67E500C58D6D /* TableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15CB52F1F3D67E500C58D6D /* TableData.swift */; };
+		F15CB5321F3D6CA400C58D6D /* UITableViewCell+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15CB5311F3D6CA400C58D6D /* UITableViewCell+Identifier.swift */; };
 		F15F69A01E60B17000619BF4 /* UIViewController+SVProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15F699F1E60B17000619BF4 /* UIViewController+SVProgressHUD.swift */; };
 		F15F69A61E60BC9B00619BF4 /* UIViewController+showAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15F69A51E60BC9B00619BF4 /* UIViewController+showAlertView.swift */; };
 		F15F69AA1E60CEA100619BF4 /* RestDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15F69A91E60CEA100619BF4 /* RestDetail.swift */; };
@@ -60,6 +65,11 @@
 		A5CB7B7EEBC5E0FB34263D04 /* Pods-RestPotUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestPotUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RestPotUITests/Pods-RestPotUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CDF0DC52A3E173882CC02874 /* Pods_RestPotUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestPotUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F116385D1E4FD20900BBB957 /* AppIconWhiteImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppIconWhiteImageView.swift; sourceTree = "<group>"; };
+		F15CB5291F3D4EC900C58D6D /* Segue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segue.swift; sourceTree = "<group>"; };
+		F15CB52B1F3D521900C58D6D /* String+NSLocalizedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+NSLocalizedString.swift"; sourceTree = "<group>"; };
+		F15CB52D1F3D59E600C58D6D /* LocalizedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
+		F15CB52F1F3D67E500C58D6D /* TableData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableData.swift; sourceTree = "<group>"; };
+		F15CB5311F3D6CA400C58D6D /* UITableViewCell+Identifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Identifier.swift"; sourceTree = "<group>"; };
 		F15F699F1E60B17000619BF4 /* UIViewController+SVProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+SVProgressHUD.swift"; sourceTree = "<group>"; };
 		F15F69A51E60BC9B00619BF4 /* UIViewController+showAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+showAlertView.swift"; sourceTree = "<group>"; };
 		F15F69A91E60CEA100619BF4 /* RestDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestDetail.swift; sourceTree = "<group>"; };
@@ -136,6 +146,8 @@
 		F15F69A11E60B1AC00619BF4 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				F15CB52B1F3D521900C58D6D /* String+NSLocalizedString.swift */,
+				F15CB5311F3D6CA400C58D6D /* UITableViewCell+Identifier.swift */,
 				F15F69A21E60B25D00619BF4 /* UIViewController */,
 			);
 			name = Extension;
@@ -163,6 +175,7 @@
 			children = (
 				F17BCEC61E4B250500BD2F4F /* RestListViewController.swift */,
 				F17BCECA1E4B58AA00BD2F4F /* RestListViewCell.swift */,
+				F17BCEC81E4B25C400BD2F4F /* Restaulant.swift */,
 			);
 			name = RestList;
 			sourceTree = "<group>";
@@ -225,7 +238,8 @@
 			children = (
 				F1E00BDC1E4A36F500AC7A1E /* AppDelegate.swift */,
 				F17BCEBF1E4A384A00BD2F4F /* GurunaviRequest.swift */,
-				F17BCEC81E4B25C400BD2F4F /* Restaulant.swift */,
+				F15CB52F1F3D67E500C58D6D /* TableData.swift */,
+				F15CB5291F3D4EC900C58D6D /* Segue.swift */,
 				F15F69A11E60B1AC00619BF4 /* Extension */,
 				F1C53B501E5C2DFF00007AFB /* UI */,
 				F17BA1D31E4F730800B3664E /* SearchRest */,
@@ -236,6 +250,7 @@
 				F1E00BE51E4A36F500AC7A1E /* LaunchScreen.storyboard */,
 				F1E00BE81E4A36F500AC7A1E /* Info.plist */,
 				F16B6BE91F16CE770009C6F6 /* Localizable.strings */,
+				F15CB52D1F3D59E600C58D6D /* LocalizedString.swift */,
 			);
 			path = RestPot;
 			sourceTree = "<group>";
@@ -571,10 +586,15 @@
 				F17BCEC91E4B25C400BD2F4F /* Restaulant.swift in Sources */,
 				F17BCECB1E4B58AB00BD2F4F /* RestListViewCell.swift in Sources */,
 				F17BCECD1E4B7F8500BD2F4F /* RestDetailViewController.swift in Sources */,
+				F15CB52C1F3D521900C58D6D /* String+NSLocalizedString.swift in Sources */,
+				F15CB5321F3D6CA400C58D6D /* UITableViewCell+Identifier.swift in Sources */,
 				F15F69A61E60BC9B00619BF4 /* UIViewController+showAlertView.swift in Sources */,
+				F15CB5301F3D67E500C58D6D /* TableData.swift in Sources */,
 				F17BCED11E4E79E800BD2F4F /* RestTitleCell.swift in Sources */,
 				F15F69AA1E60CEA100619BF4 /* RestDetail.swift in Sources */,
+				F15CB52A1F3D4ECA00C58D6D /* Segue.swift in Sources */,
 				F1E00BDD1E4A36F500AC7A1E /* AppDelegate.swift in Sources */,
+				F15CB52E1F3D59E600C58D6D /* LocalizedString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

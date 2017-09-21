@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftyJSON
 import SVProgressHUD
 import Alamofire
 
@@ -16,8 +15,6 @@ class RestListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     lazy private var titleLabel: UILabel = self.createTitleLabel()
     lazy private var numOfRestLabel: UILabel = self.createNumOfRestLabel()
-    
-    let toRestDetailIdentifier = "toRestDetail"
     
     var request: GurunaviRequest?
     
@@ -128,7 +125,7 @@ class RestListViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == toRestDetailIdentifier {
+        if segue.identifier == Segue.toRestDetailIdentifier {
             let restDetailVC = segue.destination as! RestDetailViewController
             restDetailVC.rest = sender as! Restaulant
         }
@@ -150,7 +147,7 @@ extension RestListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: toRestDetailIdentifier, sender: restList[indexPath.row])
+        performSegue(withIdentifier: Segue.toRestDetailIdentifier, sender: restList[indexPath.row])
     }
     
 }

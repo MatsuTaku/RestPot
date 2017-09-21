@@ -24,13 +24,13 @@ import UIKit
         layer.borderColor = borderColor
         layer.masksToBounds = true
         setTitleColor(UIColor.white, for: .normal)
-        setBackgroundImage(image(filledWith: mainColor), for: .normal)
+        setBackgroundImage(image(filled: mainColor), for: .normal)
         setTitleColor(mainColor, for: .highlighted)
         
         super.draw(rect)
     }
     
-    func image(filledWith color: UIColor?) -> UIImage? {
+    func image(filled color: UIColor?) -> UIImage? {
         if color == nil { return nil}
         UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, 0)
         let context = UIGraphicsGetCurrentContext()

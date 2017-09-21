@@ -15,7 +15,7 @@ extension UIViewController {
         SVProgressHUD.show()
     }
     
-    func showIndicator(with status: String) {
+    func showIndicator(status: String) {
         SVProgressHUD.show(withStatus: status)
     }
     

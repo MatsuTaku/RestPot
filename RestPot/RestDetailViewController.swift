@@ -18,7 +18,7 @@ class RestDetailViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var rest: Restaulant!
-    lazy var detailList: [RestDetail] = self.makeDetailList()
+    lazy var detailList: [RestDetail] = self.rest.dataList as! [RestDetail]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,30 +26,12 @@ class RestDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         tableView.estimatedRowHeight = 65
         tableView.rowHeight = UITableViewAutomaticDimension
-        AppIconWhiteImageView.setNavigationTitle(withNavigationItem: navigationItem)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        AppIconWhiteImageView.setNavigationTitle(to: navigationItem)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func makeDetailList() -> [RestDetail] {
-        let list: [RestDetail?] = [
-            RestDetail(title: .access, detail: rest.accessText()),
-            RestDetail(title: .callNumber, detail: rest.tel),
-            RestDetail(title: .budget, detail: rest.budget),
-            RestDetail(title: .lunch, detail: rest.lunch),
-            RestDetail(title: .party, detail: rest.party),
-            RestDetail(title: .openTime, detail: rest.opentime),
-            RestDetail(title: .holiday, detail: rest.holiday),
-            RestDetail(title: .address, detail: rest.address),
-        ]
-        return list.flatMap{ $0 }
     }
     
 
@@ -65,7 +47,7 @@ class RestDetailViewController: UIViewController {
     
 }
 
-extension RestDetailViewController: UITableViewDataSource, UITableViewDelegate {
+extension RestDetailViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -88,7 +70,7 @@ extension RestDetailViewController: UITableViewDataSource, UITableViewDelegate {
         case .some(.Detail):
             let detailCell = tableView.dequeueReusableCell(withIdentifier: "RestDetailCell") as! RestDetailCell
             let detail = detailList[indexPath.row]
-            detailCell.setupCell(withTitle: detail.title, detail: detail.detail)
+            detailCell.setupCell(title: detail.title, detail: detail.detail)
             return detailCell
         case .none:
             return UITableViewCell()
@@ -114,25 +96,28 @@ extension RestDetailViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+}
+
+extension RestDetailViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         
         let detailPair = detailList[indexPath.row]
-        if detailPair.isCallNumber {
-            let phoneNum = detailPair.detail
-            guard let telURL = URL(string: "tel:\(phoneNum)") else {
-                return
-            }
-            let alert = UIAlertController(title: phoneNum, message: "に電話を発信しますか？", preferredStyle: .alert)
-            let call = UIAlertAction(title: "はい", style: .default, handler: { action in
-                UIApplication.shared.openURL(telURL)
-            })
-            alert.addAction(call)
-            let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
-            alert.addAction(cancel)
-            self.present(alert, animated: true, completion: nil)
-            
-        }
+        if !detailPair.isCallNumber { return }
+        
+        let phoneNum = detailPair.detail
+        guard let telURL = URL(string: "tel:\(phoneNum)") else { return }
+        let alert = UIAlertController(title: phoneNum, message: "に電話を発信しますか？", preferredStyle: .alert)
+        let call = UIAlertAction(title: "はい", style: .default, handler: { action in
+            UIApplication.shared.openURL(telURL)
+        })
+        alert.addAction(call)
+        let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        alert.addAction(cancel)
+        self.present(alert, animated: true, completion: nil)
+        
+        
     }
 
 }

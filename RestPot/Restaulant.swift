@@ -81,7 +81,7 @@ class Restaulant {
         }
     }
     
-    func accessText() -> String {
+    var accessText: String {
         var text = ""
         let accesses: [String?] = [accessLine,
                                    accessStation,
@@ -94,6 +94,25 @@ class Restaulant {
             text = "--"
         }
         return text
+    }
+    
+}
+
+
+extension Restaulant: TableDataContainer {
+    
+    var dataList: [TableData]  {
+        let list = [
+            RestDetail(title: .access, detail: self.accessText),
+            RestDetail(title: .callNumber, detail: self.tel),
+            RestDetail(title: .budget, detail: self.budget),
+            RestDetail(title: .lunch, detail: self.lunch),
+            RestDetail(title: .party, detail: self.party),
+            RestDetail(title: .openTime, detail: self.opentime),
+            RestDetail(title: .holiday, detail: self.holiday),
+            RestDetail(title: .address, detail: self.address),
+            ].flatMap { $0 }
+        return list
     }
     
 }

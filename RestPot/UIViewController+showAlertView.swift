@@ -11,7 +11,7 @@ import UIKit
 
 extension UIViewController {
     
-    func showAlert(withTitle title: String, button: String = NSLocalizedString("OK", comment: "")) {
+    func showAlert(title: String, button: String = NSLocalizedString("OK", comment: "")) {
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         let ok = UIAlertAction(title: button, style: .default, handler: nil)
         alert.addAction(ok)
