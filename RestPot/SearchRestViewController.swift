@@ -10,6 +10,10 @@ import UIKit
 import CoreLocation
 import SwiftyJSON
 
+extension Segue {
+    static let toRestListIdentifier: String = "toRestList"
+}
+
 class SearchRestViewController: UIViewController {
     
     var locationManager: CLLocationManager?
@@ -26,7 +30,7 @@ class SearchRestViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         // NavigationBar
-        AppIconWhiteImageView.setNavigationTitle(to: navigationItem)
+        AppIconWhiteImageView.set(to: navigationItem)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         // LocationManager
         locationManager = CLLocationManager()
@@ -61,13 +65,13 @@ class SearchRestViewController: UIViewController {
     func toRestListView() {
         if !successUpdatingLocation {
             locationManager?.requestLocation()
-            showIndicator(status: "現在位置取得中")
+            showHUD(withStatus: "現在位置取得中")
             needToShowRestListView = true
             return
         }
         let params = GurunaviRequestParams()
         params.location(latitude: latitude, longitude: longitude)
-        params.range(range)
+        params.range = range
         performSegue(withIdentifier: Segue.toRestListIdentifier, sender: params)
     }
     
@@ -130,7 +134,7 @@ extension SearchRestViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        hideIndicator()
+        hideHUD()
         guard let newLocation = locations.last else {
             return
         }
@@ -146,7 +150,7 @@ extension SearchRestViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        hideIndicator()
+        hideHUD()
         successUpdatingLocation = false
         print(error)
         showAlert(title: NSLocalizedString("位置情報の取得に失敗しました", comment: ""))

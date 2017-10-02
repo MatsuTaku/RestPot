@@ -10,15 +10,20 @@ import Foundation
 
 class RestDetail {
     
-    var title: String
+    var type: RestDetailTitle
+    var title: String {
+        return self.type.text
+    }
     var detail: String
-    var isCallNumber: Bool = false
     
     init?(title: RestDetailTitle, detail: String?) {
-        self.title = title.text
+        self.type = title
         if detail == nil { return nil }
         self.detail = detail!
-        isCallNumber = title == .callNumber
+    }
+    
+    var isCallNumber: Bool {
+        return type == .callNumber
     }
     
 }
@@ -35,14 +40,14 @@ enum RestDetailTitle {
     
     var text: String {
         switch self {
-        case .access: return "access".localized
-        case .callNumber: return "callNumber".localized
-        case .budget: return "budget".localized
-        case .lunch: return "lunch".localized
-        case .party: return "party".localized
-        case .openTime: return "openTime".localized
-        case .holiday: return "holiday".localized
-        case .address: return "address".localized
+        case .access: return LocalizedString.access
+        case .callNumber: return LocalizedString.callNumber
+        case .budget: return LocalizedString.budget
+        case .lunch: return LocalizedString.lunch
+        case .party: return LocalizedString.party
+        case .openTime: return LocalizedString.openTime
+        case .holiday: return LocalizedString.holiday
+        case .address: return LocalizedString.address
         }
     }
 }

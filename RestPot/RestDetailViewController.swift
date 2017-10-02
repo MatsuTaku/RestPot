@@ -26,7 +26,7 @@ class RestDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         tableView.estimatedRowHeight = 65
         tableView.rowHeight = UITableViewAutomaticDimension
-        AppIconWhiteImageView.setNavigationTitle(to: navigationItem)
+        AppIconWhiteImageView.set(to: navigationItem)
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,8 +69,8 @@ extension RestDetailViewController: UITableViewDataSource {
             return titleCell
         case .some(.Detail):
             let detailCell = tableView.dequeueReusableCell(withIdentifier: "RestDetailCell") as! RestDetailCell
-            let detail = detailList[indexPath.row]
-            detailCell.setupCell(title: detail.title, detail: detail.detail)
+            let restDetail = detailList[indexPath.row]
+            detailCell.setupCell(restDetail: restDetail)
             return detailCell
         case .none:
             return UITableViewCell()

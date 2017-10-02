@@ -11,15 +11,15 @@ import SVProgressHUD
 
 extension UIViewController {
     
-    func showIndicator() {
+    func showHUD() {
         SVProgressHUD.show()
     }
     
-    func showIndicator(status: String) {
+    func showHUD(withStatus status: String) {
         SVProgressHUD.show(withStatus: status)
     }
     
-    func hideIndicator() {
+    func hideHUD() {
         SVProgressHUD.dismiss()
     }
     

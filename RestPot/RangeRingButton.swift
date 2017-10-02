@@ -11,7 +11,7 @@ import UIKit
 @IBDesignable class RangeRingButton: UIButton {
     
     @IBInspectable var borderWidth: CGFloat = 2
-    @IBInspectable var borderColor: CGColor = UIColor.white.cgColor
+    @IBInspectable var borderColor: UIColor = UIColor.white
     @IBInspectable var mainColor: UIColor?
     @IBInspectable var ringWidth: CGFloat = 70
 
@@ -21,7 +21,7 @@ import UIKit
         // Drawing code
         layer.cornerRadius = rect.height / 2
         layer.borderWidth = borderWidth
-        layer.borderColor = borderColor
+        layer.borderColor = borderColor.cgColor
         layer.masksToBounds = true
         setTitleColor(UIColor.white, for: .normal)
         setBackgroundImage(image(filled: mainColor), for: .normal)

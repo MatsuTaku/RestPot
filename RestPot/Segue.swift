@@ -8,9 +8,5 @@
 
 import Foundation
 
-class Segue {
-    
-    static let toRestListIdentifier: String = "toRestList"
-    static let toRestDetailIdentifier: String = "toRestDetail"
-    
+enum Segue {
 }

@@ -236,6 +236,12 @@
 		F1E00BDB1E4A36F500AC7A1E /* RestPot */ = {
 			isa = PBXGroup;
 			children = (
+				F1E00BE01E4A36F500AC7A1E /* Main.storyboard */,
+				F1E00BE31E4A36F500AC7A1E /* Assets.xcassets */,
+				F1E00BE51E4A36F500AC7A1E /* LaunchScreen.storyboard */,
+				F1E00BE81E4A36F500AC7A1E /* Info.plist */,
+				F16B6BE91F16CE770009C6F6 /* Localizable.strings */,
+				F15CB52D1F3D59E600C58D6D /* LocalizedString.swift */,
 				F1E00BDC1E4A36F500AC7A1E /* AppDelegate.swift */,
 				F17BCEBF1E4A384A00BD2F4F /* GurunaviRequest.swift */,
 				F15CB52F1F3D67E500C58D6D /* TableData.swift */,
@@ -245,12 +251,6 @@
 				F17BA1D31E4F730800B3664E /* SearchRest */,
 				F17BA1D41E4F731700B3664E /* RestList */,
 				F17BA1D51E4F732700B3664E /* RestDetail */,
-				F1E00BE01E4A36F500AC7A1E /* Main.storyboard */,
-				F1E00BE31E4A36F500AC7A1E /* Assets.xcassets */,
-				F1E00BE51E4A36F500AC7A1E /* LaunchScreen.storyboard */,
-				F1E00BE81E4A36F500AC7A1E /* Info.plist */,
-				F16B6BE91F16CE770009C6F6 /* Localizable.strings */,
-				F15CB52D1F3D59E600C58D6D /* LocalizedString.swift */,
 			);
 			path = RestPot;
 			sourceTree = "<group>";
@@ -345,23 +345,26 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = TakumaMatsumoto;
 				TargetAttributes = {
 					F1E00BD81E4A36F500AC7A1E = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 6F826JC48Y;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					F1E00BEC1E4A36F500AC7A1E = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 6F826JC48Y;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = F1E00BD81E4A36F500AC7A1E;
 					};
 					F1E00BF71E4A36F500AC7A1E = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 6F826JC48Y;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = F1E00BD81E4A36F500AC7A1E;
 					};
@@ -671,7 +674,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -679,7 +684,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -723,7 +732,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -731,7 +742,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -767,7 +782,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TakumaMatsumoto.RestPot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -781,7 +797,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TakumaMatsumoto.RestPot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -796,7 +813,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TakumaMatsumoto.RestPotTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RestPot.app/RestPot";
 			};
 			name = Debug;
@@ -812,7 +830,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TakumaMatsumoto.RestPotTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RestPot.app/RestPot";
 			};
 			name = Release;
@@ -827,7 +846,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TakumaMatsumoto.RestPotUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = RestPot;
 			};
 			name = Debug;
@@ -842,7 +862,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TakumaMatsumoto.RestPotUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = RestPot;
 			};
 			name = Release;

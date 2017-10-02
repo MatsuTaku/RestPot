@@ -53,12 +53,22 @@ class GurunaviRequestParams {
         params["longitude"] = longitude
     }
     
-    func range(_ range: Int) {
-        params["range"] = range
+    var range: Int {
+        get {
+            return params["range"] as! Int
+        }
+        set {
+            params["range"] = newValue
+        }
     }
     
-    func offsetPage(_ page: Int) {
-        params["offset_page"] = page
+    var offsetPage: Int {
+        get {
+            return params["offset_page"] as! Int
+        }
+        set {
+            params["offset_page"] = newValue
+        }
     }
     
 }
@@ -80,17 +90,13 @@ class GurunaviResponseParams {
             rests = jsonRest.flatMap {(_, json) in Restaulant(json)}
         }
         // For some reason, JSON.int return nil value
-        totalHitCount = formatInt(fromString: json["total_hit_count"].string)
-        pageOffset = formatInt(fromString: json["page_offset"].string)
-        hitPerPage = formatInt(fromString: json["hit_per_page"].string)
+        totalHitCount = formatInt(from: json["total_hit_count"].string)
+        pageOffset = formatInt(from: json["page_offset"].string)
+        hitPerPage = formatInt(from: json["hit_per_page"].string)
     }
     
-    func formatInt(fromString string: String?) -> Int? {
-        if string == nil {
-            return nil
-        } else {
-            return Int(string!)
-        }
+    func formatInt(from string: String?) -> Int? {
+        return string != nil ? Int(string!) : nil
     }
     
 }

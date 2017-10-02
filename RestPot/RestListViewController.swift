@@ -10,11 +10,28 @@ import UIKit
 import SVProgressHUD
 import Alamofire
 
+extension Segue {
+    static let toRestDetailIdentifier: String = "toRestDetail"
+}
+
 class RestListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    lazy private var titleLabel: UILabel = self.createTitleLabel()
-    lazy private var numOfRestLabel: UILabel = self.createNumOfRestLabel()
+    lazy private var titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = self.title
+        label.textColor = UIColor.white
+        let fontSize = label.font.pointSize
+        label.font = UIFont.boldSystemFont(ofSize: fontSize)
+        label.sizeToFit()
+        return label
+    }()
+    lazy private var numOfRestLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor.white
+        label.font = UIFont.boldSystemFont(ofSize: UIFont.smallSystemFontSize)
+        return label
+    }()
     
     var request: GurunaviRequest?
     
@@ -29,9 +46,9 @@ class RestListViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        self.tableView.estimatedRowHeight = 288
-        self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.tableFooterView = UIView(frame: .zero)
+        tableView.estimatedRowHeight = 288
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.tableFooterView = UIView(frame: .zero)
         setTitleView()
         
         searchRestaulant(withHud: true)
@@ -40,27 +57,10 @@ class RestListViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         request?.cancel()
-        hideIndicator()
+        hideHUD()
     }
     
     // MARK: - Set up NavigationBarTitleView
-    
-    func createTitleLabel() -> UILabel {
-        let label = UILabel()
-        label.text = self.title
-        label.textColor = UIColor.white
-        let fontSize = label.font.pointSize
-        label.font = UIFont.boldSystemFont(ofSize: fontSize)
-        label.sizeToFit()
-        return label
-    }
-    
-    func createNumOfRestLabel() -> UILabel {
-        let label = UILabel()
-        label.textColor = UIColor.white
-        label.font = UIFont.boldSystemFont(ofSize: UIFont.smallSystemFontSize)
-        return label
-    }
     
     func setTitleView() {
         setTitleView(withNumOfRest: nil)
@@ -70,10 +70,10 @@ class RestListViewController: UIViewController {
         if totalHitCount == num { return }
         totalHitCount = num
         let titleStackView = UIStackView(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
-        guard let navigationBarFrame = navigationController?.navigationBar.bounds else {
+        guard let navBarFrame = navigationController?.navigationBar.bounds else {
             return
         }
-        titleStackView.center = CGPoint(x: navigationBarFrame.width/2, y: navigationBarFrame.height/2)
+        titleStackView.center = CGPoint(x: navBarFrame.width/2, y: navBarFrame.height/2)
         titleStackView.axis = .vertical
         titleStackView.alignment = .center
         titleStackView.addArrangedSubview(titleLabel)
@@ -92,10 +92,10 @@ class RestListViewController: UIViewController {
     }
     
     func searchRestaulant(withHud animated: Bool) {
-        if animated { showIndicator() }
+        if animated { showHUD() }
         request = GurunaviRequest()
         request?.post(searchParams, completionHandler: { response in
-            if animated { self.hideIndicator() }
+            if animated { self.hideHUD() }
             response.rests?.forEach { self.restList.append($0) }
             if !self.didUpdated {
                 self.didUpdated = true
@@ -115,7 +115,7 @@ class RestListViewController: UIViewController {
     func requestNextRestData(withRecieved page: Int, total: Int, hitPerPage: Int) {
         let recievedRestCount = page * hitPerPage
         if recievedRestCount < total {
-            searchParams.offsetPage(page + 1)
+            searchParams.offsetPage = page + 1
             searchRestaulant(withHud: false)
         }
     }
