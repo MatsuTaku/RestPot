@@ -14,6 +14,17 @@ extension Segue {
     static let toRestListIdentifier: String = "toRestList"
 }
 
+
+extension GurunaviRequestParams {
+    enum SearchRestaulantRange: Int {
+        case threeHundredM = 1
+        case fiveHundredM
+        case oneKM
+        case twoKM
+        case threeKM
+    }
+}
+
 class SearchRestViewController: UIViewController {
     
     var locationManager: CLLocationManager?
@@ -21,7 +32,7 @@ class SearchRestViewController: UIViewController {
     var needToShowRestListView = false
     var successUpdatingLocation = false
     
-    var range: Int = 0
+    var range: GurunaviRequestParams.SearchRestaulantRange = .threeHundredM
     var latitude: Double = 0
     var longitude: Double = 0
     
@@ -71,11 +82,33 @@ class SearchRestViewController: UIViewController {
         }
         let params = GurunaviRequestParams()
         params.location(latitude: latitude, longitude: longitude)
-        params.range = range
+        params.range = range.rawValue
         performSegue(withIdentifier: Segue.toRestListIdentifier, sender: params)
     }
     
-    func searchRestaulant(range: Int) {
+    // MARK: - IBAction
+    
+    @IBAction func searchFor3km(_ sender: RangeRingButton) {
+        searchRestaulant(range: .threeKM)
+    }
+    
+    @IBAction func searchFor2km(_ sender: RangeRingButton) {
+        searchRestaulant(range: .twoKM)
+    }
+    
+    @IBAction func searchFor1km(_ sender: RangeRingButton) {
+        searchRestaulant(range: .oneKM)
+    }
+    
+    @IBAction func searchFor500m(_ sender: RangeRingButton) {
+        searchRestaulant(range: .fiveHundredM)
+    }
+    
+    @IBAction func searchFor300m(_ sender: RangeRingButton) {
+        searchRestaulant(range: .threeHundredM)
+    }
+    
+    func searchRestaulant(range: GurunaviRequestParams.SearchRestaulantRange) {
         self.range = range
         if !CLLocationManager.locationServicesEnabled() {
             showAlert(title: NSLocalizedString("位置情報を取得できません", comment: ""))
@@ -94,31 +127,10 @@ class SearchRestViewController: UIViewController {
         }
     }
     
-    @IBAction func searchFor3km(_ sender: RangeRingButton) {
-        searchRestaulant(range: 5)
-    }
-    
-    @IBAction func searchFor2km(_ sender: RangeRingButton) {
-        searchRestaulant(range: 4)
-        
-    }
-    
-    @IBAction func searchFor1km(_ sender: RangeRingButton) {
-        searchRestaulant(range: 3)
-        
-    }
-    
-    @IBAction func searchFor500m(_ sender: RangeRingButton) {
-        searchRestaulant(range: 2)
-        
-    }
-    
-    @IBAction func searchFor300m(_ sender: RangeRingButton) {
-        searchRestaulant(range: 1)
-        
-    }
 }
 
+
+// MARK: - CLLocationManager delegate
 
 extension SearchRestViewController: CLLocationManagerDelegate {
     
