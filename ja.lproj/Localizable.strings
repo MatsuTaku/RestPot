@@ -1,0 +1,10 @@
+{
+	access = "\U30a2\U30af\U30bb\U30b9";
+	callNumber = "\U96fb\U8a71\U756a\U53f7";
+	budget = "\U5e73\U5747\U4e88\U7b97";
+	lunch = "\U5e73\U5747\U4e88\U7b97(\U30e9\U30f3\U30c1\U30bf\U30a4\U30e0)";
+	party = "\U5e73\U5747\U4e88\U7b97(\U5bb4\U4f1a\U30fb\U30d1\U30fc\U30c6\U30a3)";
+	openTime = "\U55b6\U696d\U6642\U9593";
+	holiday = "\U4f11\U696d\U65e5";
+	address = "\U4f4f\U6240";
+}

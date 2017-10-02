@@ -1,0 +1,60 @@
+
+/* Class = "UILabel"; text = "フリガナ"; ObjectID = "4E9-Ke-S2H"; */
+"4E9-Ke-S2H.text" = "フリガナ";
+
+/* Class = "UILabel"; text = "メインプロフィール"; ObjectID = "5Z4-N9-myw"; */
+"5Z4-N9-myw.text" = "メインプロフィール";
+
+/* Class = "UIViewController"; title = "店舗詳細"; ObjectID = "8Xd-Ea-RSN"; */
+"8Xd-Ea-RSN.title" = "店舗詳細";
+
+/* Class = "UIButton"; normalTitle = "1km"; ObjectID = "9WD-kl-E2r"; */
+"9WD-kl-E2r.normalTitle" = "1km";
+
+/* Class = "UILabel"; text = "サブプロフィールサブプロフィールサブプロフィールサブプロフィールサブプロフィールサブプロフィール"; ObjectID = "F4T-BO-i9L"; */
+"F4T-BO-i9L.text" = "サブプロフィールサブプロフィールサブプロフィールサブプロフィールサブプロフィールサブプロフィール";
+
+/* Class = "UINavigationItem"; title = "検索条件"; ObjectID = "Oxx-hM-bBu"; */
+"Oxx-hM-bBu.title" = "検索条件";
+
+/* Class = "UILabel"; text = "アクセス"; ObjectID = "VqE-mi-nq6"; */
+"VqE-mi-nq6.text" = "アクセス";
+
+/* Class = "UILabel"; text = "店舗名"; ObjectID = "Ynh-pJ-S0w"; */
+"Ynh-pJ-S0w.text" = "店舗名";
+
+/* Class = "UILabel"; text = "プロフィール文"; ObjectID = "ZC6-YT-djZ"; */
+"ZC6-YT-djZ.text" = "プロフィール文";
+
+/* Class = "UILabel"; text = "店名"; ObjectID = "ZJY-Lb-NI1"; */
+"ZJY-Lb-NI1.text" = "店名";
+
+/* Class = "UIButton"; normalTitle = "500m"; ObjectID = "bHj-7H-DAb"; */
+"bHj-7H-DAb.normalTitle" = "500m";
+
+/* Class = "UILabel"; text = "カテゴリー"; ObjectID = "c4G-Ue-lzf"; */
+"c4G-Ue-lzf.text" = "カテゴリー";
+
+/* Class = "UIViewController"; title = "検索結果"; ObjectID = "eKW-ON-JMq"; */
+"eKW-ON-JMq.title" = "検索結果";
+
+/* Class = "UILabel"; text = "項目"; ObjectID = "h5Y-rf-Ohc"; */
+"h5Y-rf-Ohc.text" = "項目";
+
+/* Class = "UIButton"; normalTitle = "2km"; ObjectID = "iBf-yr-F9A"; */
+"iBf-yr-F9A.normalTitle" = "2km";
+
+/* Class = "UILabel"; text = "内容"; ObjectID = "jBP-jf-eVX"; */
+"jBP-jf-eVX.text" = "内容";
+
+/* Class = "UIButton"; normalTitle = "3km"; ObjectID = "lut-3X-rp0"; */
+"lut-3X-rp0.normalTitle" = "3km";
+
+/* Class = "UIButton"; normalTitle = "300m"; ObjectID = "m3w-eh-hii"; */
+"m3w-eh-hii.normalTitle" = "300m";
+
+/* Class = "UILabel"; text = "近くのレストランを検索する"; ObjectID = "oKE-z6-7Pw"; */
+"oKE-z6-7Pw.text" = "近くのレストランを検索する";
+
+/* Class = "UILabel"; text = "カテゴリー"; ObjectID = "zrm-Sz-Rfa"; */
+"zrm-Sz-Rfa.text" = "カテゴリー";

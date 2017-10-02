@@ -37,8 +37,11 @@ class Restaulant {
     var party: String?
     var lunch: String?
     
-    init(_ json: JSON) {
-        id = json["id"].string
+    init?(_ json: JSON) {
+        guard let id = json["id"].string else {
+            return nil
+        }
+        self.id = id
         name = json["name"].string
         nameKana = json["name_kana"].string
         category = json["category"].string
@@ -78,7 +81,7 @@ class Restaulant {
         }
     }
     
-    func accessText() -> String {
+    var accessText: String {
         var text = ""
         let accesses: [String?] = [accessLine,
                                    accessStation,
@@ -86,11 +89,30 @@ class Restaulant {
                                    accessWalk != nil ? "\(accessWalk!)分" : accessWalk,
                                    accessNote
         ]
-        text = (accesses.filter{ $0 != nil } as! [String]).joined(separator: " ")
+        text = accesses.flatMap { $0 }.joined(separator: " ")
         if text.isEmpty {
             text = "--"
         }
         return text
+    }
+    
+}
+
+
+extension Restaulant: TableDataContainer {
+    
+    var dataList: [TableData]  {
+        let list = [
+            RestDetail(title: .access, detail: self.accessText),
+            RestDetail(title: .callNumber, detail: self.tel),
+            RestDetail(title: .budget, detail: self.budget),
+            RestDetail(title: .lunch, detail: self.lunch),
+            RestDetail(title: .party, detail: self.party),
+            RestDetail(title: .openTime, detail: self.opentime),
+            RestDetail(title: .holiday, detail: self.holiday),
+            RestDetail(title: .address, detail: self.address),
+            ].flatMap { $0 }
+        return list
     }
     
 }

@@ -13,6 +13,12 @@ class RestDetailCell: UITableViewCell {
     
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var detail: UILabel!
+    
+    var restDetail: RestDetail!
+    
+    var isCallNumber: Bool {
+        return restDetail.isCallNumber
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,14 +31,11 @@ class RestDetailCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setupCell(withTitle title: String?, detail: String?) {
-        self.title.text = title
-        self.detail.text = detail
-        if title == "電話番号" {
-            self.detail.textColor = UIColor(red: 0, green: 0.5, blue: 1, alpha: 1)
-        } else {
-            self.detail.textColor = UIColor.darkText
-        }
+    func setupCell(restDetail: RestDetail) {
+        self.restDetail = restDetail
+        self.title.text = restDetail.title
+        self.detail.text = restDetail.detail
+        self.detail.textColor = isCallNumber ? UIColor(red: 0, green: 0.5, blue: 1, alpha: 1) : UIColor.darkText
     }
 
 }

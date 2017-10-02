@@ -41,7 +41,7 @@ class RestListViewCell: UITableViewCell {
         }
         category.text = rest.category
         name.text = rest.name
-        access.text = rest.accessText()
+        access.text = rest.accessText
         profile.text = rest.prShort
         profileMarginTop.constant = rest.prShort != nil ? 8 : 0
         profile.layoutIfNeeded()

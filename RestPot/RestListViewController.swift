@@ -7,43 +7,17 @@
 //
 
 import UIKit
-import SwiftyJSON
 import SVProgressHUD
+import Alamofire
 
-class RestListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+extension Segue {
+    static let toRestDetailIdentifier: String = "toRestDetail"
+}
+
+class RestListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    lazy private var titleLabel: UILabel = self.createTitleLabel()
-    lazy private var numOfRestLabel: UILabel = self.createNumOfRestLabel()
-    
-    var restList: [Restaulant] = []
-    var searchParams: [String: Any] = [:]
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        
-        self.tableView.estimatedRowHeight = 288
-        self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.tableFooterView = UIView(frame: .zero)
-        setTitleView()
-        
-        searchRestaulant(withHud: true)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    // MARK: - Set up NavigationBarTitleView
-    
-    func createTitleLabel() -> UILabel {
+    lazy private var titleLabel: UILabel = {
         let label = UILabel()
         label.text = self.title
         label.textColor = UIColor.white
@@ -51,25 +25,55 @@ class RestListViewController: UIViewController, UITableViewDelegate, UITableView
         label.font = UIFont.boldSystemFont(ofSize: fontSize)
         label.sizeToFit()
         return label
-    }
-    
-    func createNumOfRestLabel() -> UILabel {
+    }()
+    lazy private var numOfRestLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.white
         label.font = UIFont.boldSystemFont(ofSize: UIFont.smallSystemFontSize)
         return label
+    }()
+    
+    var request: GurunaviRequest?
+    
+    var restList: [Restaulant] = []
+    lazy var searchParams: GurunaviRequestParams = GurunaviRequestParams()
+    var totalHitCount: Int?
+    var showingListCount = 0
+    var didUpdated = false
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+        
+        tableView.estimatedRowHeight = 288
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.tableFooterView = UIView(frame: .zero)
+        setTitleView()
+        
+        searchRestaulant(withHud: true)
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        request?.cancel()
+        hideHUD()
+    }
+    
+    // MARK: - Set up NavigationBarTitleView
     
     func setTitleView() {
         setTitleView(withNumOfRest: nil)
     }
     
     func setTitleView(withNumOfRest num: Int?) {
+        if totalHitCount == num { return }
+        totalHitCount = num
         let titleStackView = UIStackView(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
-        guard let navigationBarFrame = navigationController?.navigationBar.bounds else {
+        guard let navBarFrame = navigationController?.navigationBar.bounds else {
             return
         }
-        titleStackView.center = CGPoint(x: navigationBarFrame.width/2, y: navigationBarFrame.height/2)
+        titleStackView.center = CGPoint(x: navBarFrame.width/2, y: navBarFrame.height/2)
         titleStackView.axis = .vertical
         titleStackView.alignment = .center
         titleStackView.addArrangedSubview(titleLabel)
@@ -81,39 +85,29 @@ class RestListViewController: UIViewController, UITableViewDelegate, UITableView
     
     // MARK: - Load Restaulant list methods
     
+    func loadTableView() {
+        if restList.count <= showingListCount { return }
+        tableView.reloadData()
+        showingListCount = restList.count
+    }
+    
     func searchRestaulant(withHud animated: Bool) {
-        if animated {
-            startIndicatorAnimating()
-        }
-        GurunaviRequest().post(searchParams, completionHandler: { response in
-            self.stopIndicatorAnimating()
-            if let error = response.result.error {
-                print(error)
-            } else {
-                guard let data = response.data else {
-                    return
-                }
-                let jsonData = JSON(data)
-                print(jsonData)
-                self.restList += jsonData["rest"].map{ (_, json) in Restaulant(json) }
-                self.tableView.reloadData()
-                // For some reason, JSON.int return nil value
-                guard let totalHitCountStr = jsonData["total_hit_count"].string else {
-                    self.setTitleView(withNumOfRest: 0)
-                    return
-                }
-                guard let totalHitCount = Int(totalHitCountStr) else {
-                    return
-                }
-                self.setTitleView(withNumOfRest: totalHitCount)
-                
-                guard
-                    let pageOffset = Int(jsonData["page_offset"].string!),
-                    let hitPerPage = Int(jsonData["hit_per_page"].string!)
-                else {
-                    return
-                }
-                self.requestNextRestData(withRecieved: pageOffset, total: totalHitCount, hitPerPage: hitPerPage)
+        if animated { showHUD() }
+        request = GurunaviRequest()
+        request?.post(searchParams, completionHandler: { response in
+            if animated { self.hideHUD() }
+            response.rests?.forEach { self.restList.append($0) }
+            if !self.didUpdated {
+                self.didUpdated = true
+                self.loadTableView()
+            }
+            self.setTitleView(withNumOfRest: response.totalHitCount)
+            if let pageOffset = response.pageOffset,
+            let totalHitCount = response.totalHitCount,
+            let hitPerPage = response.hitPerPage {
+                self.requestNextRestData(withRecieved: pageOffset,
+                                     total: totalHitCount,
+                                     hitPerPage: hitPerPage)
             }
         })
     }
@@ -121,17 +115,9 @@ class RestListViewController: UIViewController, UITableViewDelegate, UITableView
     func requestNextRestData(withRecieved page: Int, total: Int, hitPerPage: Int) {
         let recievedRestCount = page * hitPerPage
         if recievedRestCount < total {
-            searchParams["offset_page"] = page + 1
+            searchParams.offsetPage = page + 1
             searchRestaulant(withHud: false)
         }
-    }
-    
-    func startIndicatorAnimating() {
-        SVProgressHUD.show()
-    }
-    
-    func stopIndicatorAnimating() {
-        SVProgressHUD.dismiss()
     }
     
 
@@ -139,13 +125,15 @@ class RestListViewController: UIViewController, UITableViewDelegate, UITableView
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toRestDetail" {
+        if segue.identifier == Segue.toRestDetailIdentifier {
             let restDetailVC = segue.destination as! RestDetailViewController
             restDetailVC.rest = sender as! Restaulant
         }
     }
     
-    // MARK: - UITableViewDataSource
+}
+
+extension RestListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return restList.count
@@ -159,7 +147,17 @@ class RestListViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "toRestDetail", sender: restList[indexPath.row])
+        performSegue(withIdentifier: Segue.toRestDetailIdentifier, sender: restList[indexPath.row])
+    }
+    
+}
+
+extension RestListViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if tableView.contentOffset.y + tableView.bounds.height > tableView.contentSize.height {
+            loadTableView()
+        }
     }
 
 }

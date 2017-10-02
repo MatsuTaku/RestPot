@@ -24,15 +24,11 @@ class AppIconWhiteImageView: UIImageView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.initSelf()
-    }
-    
-    func initSelf() {
         self.image = #imageLiteral(resourceName: "appIconWhite")
         self.contentMode = .scaleAspectFit
     }
     
-    static func setNavigationTitle(withNavigationItem navigationItem: UINavigationItem) {
+    static func set(to navigationItem: UINavigationItem) {
         navigationItem.titleView = AppIconWhiteImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
     }
     
